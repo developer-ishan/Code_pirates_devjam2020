@@ -25,6 +25,18 @@ branch
 3. Notify the guard in duty and hostel secretery
 4. Rfied tag if possible
 ```
+## Prevent mess food wastage
+  ```bash
+  Student can select if he wants to EAT OR NOT
+  ```
+## Time table according to his batch
+```bash
+1. Self Attendence maintainence system
+2. Warning if attendence less than 75% 
+3. To Dp list using javascript
+4. Event Adder
+```
+
 ## communitites and posts
 
 ```bash
