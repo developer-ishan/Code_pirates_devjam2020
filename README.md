@@ -1,4 +1,5 @@
-# Code_pirates_devjam2020
+<h1> <center> Code_pirates_devjam2020 </center> </h1>
+<center><img src="http://cdn.designbump.com/wp-content/uploads/2013/01/logo-designs-logos-wings-inspiration-017.jpg" width = "300px"></center>
 
 project models
 
@@ -15,10 +16,19 @@ group
 verification via id card
 branch
 ```
+## still under discussion
+```bash
+  Simple multiplayer online games if possible.
+  (Most probably game code copy paste on backend feature to be added on own.)
+  1. Tic Tac Toe
+  2. Snake
+  3. Ping Pong
+  4. Complete the dots
+```
 ## Attendence System
 ### Should be main feature as it is unique
 #### Should consider every hostel differently.
-**Code must change with every checkin checkout (Whats app-web like feature)**
+**QR Code must change with every checkin checkout (Whats app-web like feature)**
 ```bash
 1. Checkin Checkout
 2. If late give warning to student
@@ -37,7 +47,7 @@ branch
 4. Event Adder
 ```
 
-## communitites and posts
+## Communitites and posts
 
 ```bash
 class group
@@ -65,21 +75,39 @@ Conditional rendering of the study material For each year student
 ```
 ## Helthcare
 ```bash
+<<<<<<< HEAD
 List of doctors their contact
 location and google map to reach the clinic
 hints for reaching the destination.
+=======
+List of doctors their contack
+location and google map to reach the clinic
+hints for reaching the destinatuon.
+>>>>>>> 49710cc6b82f2e3e9980b0f19554a21ac7dad140
 ```
 ## Mentor suggestions and chat according to particular interests
 ```bash
 For Guidance
 For cultural commitees
 ```
+## Additional special features
+```bash
+ ** Prevent Vulgarity ** in the portal using Regular Expressions(python or javascript)
+    Have to write many regular expressions
+```
 ## Complain portal
+```bash
+  ..* Raise issue for sanitization or some other
   ..* Mess
   ..* Hostel
-## Project Sharing
+```
+## Project Sharing and work of seniors
+```bash
+According to prefrence
+```
 ## E-Commerce Portal
 ```bash
-
+..* Like Study smart initially
+..* Version 2 : student can also post requirement of a particular product as well as post for selling.
 ```
 # Api Used
