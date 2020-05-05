@@ -33,7 +33,7 @@ branch
 ```bash
 1. Self Attendence maintainence system
 2. Warning if attendence less than 75% 
-3. To Dp list using javascript
+3. To Do list using javascript
 4. Event Adder
 ```
 
