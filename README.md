@@ -39,3 +39,8 @@ We also need the schedule of the MNNIT dispensary and the local nearby clinics, 
 
 ##Study
 Conditional rendering of the study material For each year student
+
+# Helthcare
+List of doctors their contack
+locationn and google map to reach the clinic
+hints for reaching the destinatuon.
