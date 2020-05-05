@@ -77,7 +77,10 @@ For cultural commities
 ## Complain portal
   ..* Mess
   ..* Hostel
-## Project Sharing
+## Project Sharing and work of seniors
+```bash
+According to prefrence
+```
 ## E-Commerce Portal
 ```bash
 ..* Like Study smart initially
