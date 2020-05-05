@@ -80,6 +80,7 @@ For cultural commities
 ## Project Sharing
 ## E-Commerce Portal
 ```bash
-
+..* Like Study smart initially
+..* Version 2 : student can also post requirement of a particular product as well as post for selling.
 ```
 # Api Used
