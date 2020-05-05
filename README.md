@@ -12,9 +12,15 @@ username
 registration no.
 room no.
 group
+verification via id card
 branch
 ```
+## Attendence System
+### Should be main feature as it is unique
+#### Should consider every hostel differently.
+```bash
 
+```
 ## communitites and posts
 
 ```bash
@@ -29,7 +35,7 @@ MNNIT Alumni Details - Acc to each Community
 We also need a system to check if a person is actually a mentor, that can be done by either using his id and verify it, or 
 we can check his name and branch using the MNNIT brachwise list availble at College Website.
 ```
-##Admin Panels
+## Admin Panels
 ```bash
 *For Us
 *For Guards(used in the checkout feature)
@@ -37,15 +43,26 @@ we can check his name and branch using the MNNIT brachwise list availble at Coll
 
 We also need the schedule of the MNNIT dispensary and the local nearby clinics, at least some legitimate data to show for the practical
 ```
-##Study
+## Study
 ```bash
 Conditional rendering of the study material For each year student
 ```
-# Helthcare
+## Helthcare
 ```bash
 List of doctors their contack
 locationn and google map to reach the clinic
 hints for reaching the destinatuon.
 ```
-# Mentor suggestions and chat according to particulat interests
+## Mentor suggestions and chat according to particular interests
+```bash
+For Guidance
+For cultural commities
+```
+## Complain portal
+  ..* Mess
+  ..* Hostel
+## Project Sharing
+## E-Commerce Portal
+```bash
 
+```
