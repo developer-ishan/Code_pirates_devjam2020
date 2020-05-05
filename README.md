@@ -65,14 +65,14 @@ Conditional rendering of the study material For each year student
 ```
 ## Helthcare
 ```bash
-List of doctors their contack
-locationn and google map to reach the clinic
-hints for reaching the destinatuon.
+List of doctors their contact
+location and google map to reach the clinic
+hints for reaching the destination.
 ```
 ## Mentor suggestions and chat according to particular interests
 ```bash
 For Guidance
-For cultural commities
+For cultural commitees
 ```
 ## Complain portal
   ..* Mess
