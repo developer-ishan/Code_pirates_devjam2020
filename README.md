@@ -16,6 +16,15 @@ group
 verification via id card
 branch
 ```
+## still under discussion
+```bash
+  Simple multiplayer online games if possible.
+  (Most probably game code copy paste on backend feature to be added on own.)
+  1. Tic Tac Toe
+  2. Snake
+  3. Ping Pong
+  4. Complete the dots
+```
 ## Attendence System
 ### Should be main feature as it is unique
 #### Should consider every hostel differently.
