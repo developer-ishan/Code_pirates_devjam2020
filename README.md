@@ -28,20 +28,21 @@ MNNIT Alumni Details - Acc to each Community
 
 We also need a system to check if a person is actually a mentor, that can be done by either using his id and verify it, or 
 we can check his name and branch using the MNNIT brachwise list availble at College Website.
-
+```
 ##Admin Panels
-
+```bash
 *For Us
 *For Guards(used in the checkout feature)
 *Mess Sectratory (if u dont want to add manually)
 
 We also need the schedule of the MNNIT dispensary and the local nearby clinics, at least some legitimate data to show for the practical
-
-##Study
-Conditional rendering of the study material For each year student
-
-# Helthcare
 ```
+##Study
+```bash
+Conditional rendering of the study material For each year student
+```
+# Helthcare
+```bash
 List of doctors their contack
 locationn and google map to reach the clinic
 hints for reaching the destinatuon.
