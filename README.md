@@ -18,8 +18,12 @@ branch
 ## Attendence System
 ### Should be main feature as it is unique
 #### Should consider every hostel differently.
+**Code must change with every checkin checkout (Whats app-web like feature)**
 ```bash
-
+1. Checkin Checkout
+2. If late give warning to student
+3. Notify the guard in duty and hostel secretery
+4. Rfied tag if possible
 ```
 ## communitites and posts
 
@@ -66,3 +70,4 @@ For cultural commities
 ```bash
 
 ```
+# Api Used
