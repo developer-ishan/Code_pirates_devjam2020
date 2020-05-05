@@ -37,7 +37,7 @@ branch
 4. Event Adder
 ```
 
-## communitites and posts
+## Communitites and posts
 
 ```bash
 class group
@@ -74,9 +74,14 @@ hints for reaching the destinatuon.
 For Guidance
 For cultural commities
 ```
+#### Prevent Vulgarity in the portal using Regular Expressions(python or javascript)
+##### Have to write many regular expressions
 ## Complain portal
+```bash
+  ..* Raise issue for sanitization or some other
   ..* Mess
   ..* Hostel
+```
 ## Project Sharing and work of seniors
 ```bash
 According to prefrence
