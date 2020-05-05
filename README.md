@@ -18,7 +18,7 @@ branch
 ## Attendence System
 ### Should be main feature as it is unique
 #### Should consider every hostel differently.
-**Code must change with every checkin checkout (Whats app-web like feature)**
+**QR Code must change with every checkin checkout (Whats app-web like feature)**
 ```bash
 1. Checkin Checkout
 2. If late give warning to student
@@ -33,7 +33,7 @@ branch
 ```bash
 1. Self Attendence maintainence system
 2. Warning if attendence less than 75% 
-3. To Dp list using javascript
+3. To Do list using javascript
 4. Event Adder
 ```
 
