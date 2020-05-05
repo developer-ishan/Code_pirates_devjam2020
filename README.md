@@ -1,5 +1,5 @@
-# Code_pirates_devjam2020
-<img src="http://cdn.designbump.com/wp-content/uploads/2013/01/logo-designs-logos-wings-inspiration-017.jpg" height = "200px" width = "200px">
+<h1> <center> Code_pirates_devjam2020 </center> </h1>
+<center><img src="http://cdn.designbump.com/wp-content/uploads/2013/01/logo-designs-logos-wings-inspiration-017.jpg" width = "300px"></center>
 
 project models
 
