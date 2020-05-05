@@ -84,8 +84,11 @@ hints for reaching the destinatuon.
 For Guidance
 For cultural commities
 ```
-#### Prevent Vulgarity in the portal using Regular Expressions(python or javascript)
-##### Have to write many regular expressions
+## Additional special features
+```bash
+ ** Prevent Vulgarity ** in the portal using Regular Expressions(python or javascript)
+    Have to write many regular expressions
+```
 ## Complain portal
 ```bash
   ..* Raise issue for sanitization or some other
