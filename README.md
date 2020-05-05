@@ -66,7 +66,7 @@ Conditional rendering of the study material For each year student
 ## Helthcare
 ```bash
 List of doctors their contack
-locationn and google map to reach the clinic
+location and google map to reach the clinic
 hints for reaching the destinatuon.
 ```
 ## Mentor suggestions and chat according to particular interests
