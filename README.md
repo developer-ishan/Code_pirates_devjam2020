@@ -51,6 +51,9 @@ branch
 3. To Do list using javascript
 4. Event Adder
 ```
+```bash
+in frontend we may show it in the form of todo list format or timeline format
+```
 
 ## Communitites and posts
 
