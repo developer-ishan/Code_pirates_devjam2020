@@ -5,11 +5,11 @@ a{
     text-decoration: none;
 }
 body,html{
-    margin: 0;
+    padding-top: 2rem;
     width: 100%;
     height: 100%;
     font-family: sans-serif;
-    background-image: url('../images/signup_bg.jpg');
+    background-image: url('../images/login_bg.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -18,23 +18,25 @@ body,html{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 }
 .main-form{
     width: 60%;
     background: #fff;
     border-top-left-radius: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     border-bottom-right-radius: 2rem;
 }
 .grid-container{
     width: 100%;
     display: grid;
-    grid-template-columns: 40% 60%;
-}
-.login-form{
+    grid-template-columns: 40% 60%;}
+.signup-form{
     width: 100%;
     display: flex;
-    padding-top: 2.5vw;
-    padding-bottom: 2.5vw;
+    padding-top: 1.5vw;
+    padding-bottom: 1vw;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -47,14 +49,15 @@ body,html{
 }
 .field{
     padding: 0.6em 0.6em 0.6em 0.6em;
-    margin-bottom: 1.5em;
+    margin-top: 0.4em;
     width: 90%;
     border: 0;
     border-bottom: 0.1em solid gray;
     font-size: min(1em,3vw);
+    letter-spacing: 0.08rem;
     outline: none;
 }
-.login-btn{
+.signup-btn{
     padding: 0.6em 0.8em 0.6em 0.8em;
     width: 97%;
     font-size: min(1em,3vw);
@@ -66,7 +69,7 @@ body,html{
     background: #fff;
     color: var(--primary-color);
 }
-.login-btn:hover{
+.signup-btn:hover{
     background: var(--primary-color);
     color: #fff;
 }
@@ -85,38 +88,41 @@ form{
     .field{
         width: 80%;
     }
-    .login-btn{
+    .main-form{
+        width: 80%;
+    }
+    .signup-btn{
         width: 80%;
     }
   }
   .lock-icon{
-    width: min(2rem,4.5vw);
-    float: right;
-    margin: 0;
-    position: relative;
-    top: min(-4vw,-3.5rem);
-}
-.form-elem label{
-    float: left;
-    position: relative;
-    top: -2.8em;
-    font-size: 1em;
-    color: #999;
-    left: 1em;
-    transition: 0.2s all ease-in-out;
-}
-.form-elem input{
-    transition: 0.2s all ease-in-out;
+      width: 2rem;
+      float: right;
+      margin: 0;
+      position: relative;
+      top: -2.2rem;
+  }
+  .form-elem label{
+      float: left;
+      position: relative;
+      top: -1.8em;
+      font-size: 1.1em;
+      color: #999;
+      left: 1.2em;
+      transition: 0.2s all ease-in-out;
+  }
+  .form-elem input{
+      transition: 0.2s all ease-in-out;
 }
 .form-elem input:focus  +label{
-  position: relative;
-  top: -5.8em;
-  font-size: 0.7em;
-  color: #000;
+    position: relative;
+    top: -3.6em;
+    font-size: 0.8em;
+    color: #000;
 }
 .form-elem input:valid +label{
-  position: relative;
-  color: #000;
-  top: -5.8em;
-  font-size: 0.7em;
+    position: relative;
+    color: #000;
+    top: -3.6em;
+    font-size: 0.8em;
 }

@@ -1,9 +1,69 @@
 {% extends 'base/base.html' %}
+{% load static %}
+
 {% block body %}
-<form action="" method="post">
-    {%csrf_token%}
-    {{user_basic_form}}
-    {{user_additional_form}}
-    <button>signup</button>
-</form>
+    <!-- STYLESHEET FOR THE PAGE -->
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'css/signup.css' %}" />
+
+<div class="container">
+    <div class="main-form">
+        <div class="grid-container">
+            <div class="grid-items signup-form">
+                <div style="width: 100%; text-align: center;">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" class="user-img">
+                    <h3 style="font-size: min(1.5rem,4vw); width: 100%;">New User Sign Up</h3>
+                </div>
+                <form action="" method="POST">
+                    {%csrf_token%}
+                    <div class="form-elem">
+                    <input type="text" required class="field">
+                    <label >Name</label>
+                    </div>
+                    <div class="form-elem">
+                    <input type="text" required class="field">
+                    <label >Reg. No.</label>
+                    </div>
+                    <div class="form-elem">
+                    <input type="email" required class="field">
+                    <label >Email</label>
+                    </div>
+                    <select class="field" style="margin-bottom: 1.5em;" required>
+                        <option value="" style="color: #999;">Hostel Name</option>
+                        <option value="svbh">SVBH</option>
+                        <option value="malviya">Malviya Hostel</option>
+                        <option value="tagore">Tagore Hostel</option>
+                        <option value="tandon">Tandon Hostel</option>
+                        <option value="tilak">Tilak Hostel</option>
+                        <option value="kngh">KNGH</option>
+                    </select>
+                    <select class="field" style="margin-bottom: 1.5em;" required>
+                        <option value="" style="color: #999;">Branch</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="it">Information & Tech</option>
+                        <option value="ece">Electronics & Comm.</option>
+                        <option value="ee">Electrical</option>
+                        <option value="mech">Mechanical</option>
+                        <option value="ce">Chemical</option>
+                        <option value="civil">Civil</option>
+                        <option value="pi">Production & Ind.</option>
+                        <option value="bt">Biotechnology</option>
+                    </select>
+                    <div class="form-elem">
+                   <input type="password" required class="field">
+                   <label>Password</label>
+                   <img src="https://img.icons8.com/pastel-glyph/64/000000/lock.png" class="lock-icon">
+                    </div>
+                    <div class="form-elem">
+                   <input type="password" required class="field">
+                   <label>Confirm Password</label>
+                   <img src="https://img.icons8.com/pastel-glyph/64/000000/lock.png" class="lock-icon" >
+                   </div>
+                    <button class="signup-btn">SignUp</button>
+                </form>
+            </div>
+            <div class="grid-items grid-img"><img src="{% static 'images/signup_side.jpg' %}" style="width: 100%; height: 100%; border-bottom-right-radius: 2rem;"></div>
+        </div>
+    </div>
+</div>
 {% endblock %}
