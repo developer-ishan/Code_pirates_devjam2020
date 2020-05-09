@@ -1,0 +1,138 @@
+body{
+    background-color: rgb(15, 86, 119);
+}
+
+header nav div{
+    
+    float: right;
+}
+header div{
+    background-color: rgb(61, 117, 238);
+    border-radius: 8px;
+    display:inline-flex;
+    width: 100%;
+    
+}
+.main-menu{
+    list-style-type: none;
+    float: right;
+    overflow: hidden;
+}
+
+.main-menu li a 
+{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    padding: 5px;
+    font-size: 24px;
+    text-decoration: none;
+    float: left;
+}
+.main-menu li{
+    float: left;
+   display: flex; 
+}
+
+#page-header .ht-container {
+    display: block;
+    border-radius: 8px;
+    text-align: center;
+    color:#fff;
+    margin-bottom: 13px;
+}
+#page-header-title{
+    font-size: 37px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#page-header-tagline{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.hkb-site-search__field
+{   float: inherit;
+    width: 40%;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+}
+.hkb-site-search__button{
+    height: 38px;
+    background-color: rgba(37, 34, 34, 0.664);
+    border-radius: 8px;
+    border: none;
+    width: 5.5%;
+    float: inherit;
+}
+.container_row{
+    background-color: white;
+    text-align: center;
+}
+.container_row::after{
+    content: "";
+    display: table;
+    clear: both;
+    
+}
+.column{
+    float: left;
+  width: 27.4%;
+  padding: 15px;
+  margin: 20px;
+  background-color: wheat;
+}
+.column:hover{
+    background-color: yellowgreen;
+    
+}
+@media screen and (max-width:800px) {
+    .column {
+      width: 100%;
+    }
+  }
+#article_column
+{
+    float: left;
+    width: 27.4%;
+    padding: 15px;
+    margin: 20px;
+    background-color: wheat;
+}
+.container_row2
+{
+    background-color: white;
+    text-align: center;
+}
+.container_row2::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+@media screen and (max-width:800px) {
+    #article_column {
+      width: 100%;
+    }
+  }
+
+.container_row3
+{
+    background-color: white;
+    text-align: center;
+}
+.container_row3::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+#footer_column{
+    float: left;
+    width: 27.4%;
+    padding: 15px;
+    margin: 20px;
+    background-color: wheat;
+}
+@media screen and (max-width:800px) {
+    #footer_column {
+      width: 100%;
+    }
+  }
