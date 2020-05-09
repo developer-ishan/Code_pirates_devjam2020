@@ -1,25 +1,30 @@
 {% extends 'base/base.html' %}
-{% load staticfiles %}
-<link rel="stylesheet" href="{% static '../base/style.css' %}">
+{% load static %}
+
 {% block body %}
-<div class="container">
-    <div class="main-form">
-        <div class="grid-container">
-            <div class="grid-items login-form">
-                <div style="width: 100%; text-align: center;">
-                    <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" class="user-img">
-                    <h3 style="font-size: min(1.5rem,4vw); width: 100%;">Account Login</h3>
+    <!-- STYLESHEET FOR THE PAGE -->
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'css/login.css' %}" />
+
+    <div class="container">
+        <div class="main-form">
+            <div class="grid-container">
+                <div class="grid-items login-form">
+                    <div style="width: 100%; text-align: center;">
+                        <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" class="user-img">
+                        <h3 style="font-size: min(1.5rem,4vw); width: 100%;">Account Login</h3>
+                    </div>
+                    <form action="" method="POST">
+                        {%csrf_token%}
+                        <input type="text" required placeholder="Email" class="field" id="search"><br>
+                        <input type="password" required placeholder="Password" class="field"><br><a href="#" style="text-decoration: none; color: #666; font-size: min(0.7em,2vw); float: right; position: relative;top: -1.5em;">Forget Password?</a>
+                        <button class="login-btn">Login</button>
+                        <p style="font-size: min(1em,2.5vw);color: #999;">New User? <span><a href="#" style="color: #004C80;font-weight: 600;">SignUp</a></span> here!!</p>
+                    </form>
                 </div>
-                <form action="" method="POST">
-                    {%csrf_token%}
-                    <input type="text" required placeholder="Email" class="field" id="search"><br>
-                   <input type="password" required placeholder="Password" class="field"><br><a href="#" style="text-decoration: none; color: #666; font-size: min(0.7em,2vw); float: right; position: relative;top: -1.5em;">Forget Password?</a>
-                    <button class="login-btn">Login</button>
-                    <p style="font-size: min(1em,2.5vw);color: #999;">New User? <span><a href="#" style="color: #004C80;font-weight: 600;">SignUp</a></span> here!!</p>
-                </form>
+                <div class="grid-items grid-img"><img src="{% static 'images/login_side.jpg' %}" style="width: 100%; height: 100%; border-bottom-right-radius: 2rem;"></div>
             </div>
-            <div class="grid-items grid-img"><img src="side.jpg" style="width: 100%; height: 100%; border-bottom-right-radius: 2rem;"></div>
         </div>
     </div>
-</div>
+
 {% endblock %}

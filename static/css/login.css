@@ -9,7 +9,7 @@ body,html{
     width: 100%;
     height: 100%;
     font-family: sans-serif;
-    background-image: url('bg.jpg');
+    background-image: url('../images/login_bg.jpg');
     background-size: cover;
     background-position: center;
 }
