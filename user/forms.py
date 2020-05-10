@@ -5,13 +5,13 @@ from .models import user_profile, User
 class django_user_form(forms.ModelForm):
     class Meta():
         model = User
-        fields = ['username', 'first_name', 'last_name', 'password', 'email']
+        fields = ['username','first_name', 'last_name', 'password', 'email']
         widgets = {
-            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'username'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'firstname'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'lastname'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'email'}),
-            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}),
+            'username': forms.TextInput(attrs={'class': 'field'}),
+            'first_name': forms.TextInput(attrs={'class': 'field'}),
+            'last_name': forms.TextInput(attrs={'class': 'field'}),
+            'email': forms.EmailInput(attrs={'class': 'field'}),
+            'password': forms.PasswordInput(attrs={'class': 'field'}),
         }
 
     def clean_username(self):
@@ -31,10 +31,67 @@ class django_user_form(forms.ModelForm):
 class user_profile_form(forms.ModelForm):
     class Meta():
         model = user_profile
-        fields = ['regno', 'branch','group','roomno','hostel']
+        fields = ['regno', 'branch','profile_pic','group','roomno','hostel']
         # exclude = ['user']
         widgets = {
-            # 'profile_pic': forms.ImageField(),
-            # 'bio': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'bio (optional)'}),
-
+            'regno': forms.NumberInput(attrs={'class': 'field'}),
+            'roomno': forms.NumberInput(attrs={'class': 'field'}),
         }
+       
+    branch = forms.CharField(required=True, widget=forms.Select(
+        attrs={
+            "class": "field"
+        }, choices=(
+            ('cs', 'computer science'),
+            ('it', 'information technology'),
+            ('ece', 'Electronics & Comm.'),
+            ('ee', 'Electrical'),
+            ('mech', 'mechanical'),
+            ('chemical', 'chemical'),
+            ('civil', 'cicil'),
+            ('pi', 'Production & Ind.'),
+            ('bt', 'Biotechnology'),
+            
+        )
+    )) 
+
+    hostel = forms.CharField(required=True, widget=forms.Select(
+        attrs={
+            "class": "field"
+        }, choices=(
+            ('svbh', 'svbh'),
+            ('kngh', 'kngh'),
+            
+            
+            
+        )
+    ))
+    group = forms.CharField(required=True, widget=forms.Select(
+        attrs={
+            "class": "field"
+        }, choices=(
+            ('A1','A1'),
+            ('A2','A2'),
+            ('B1','B1'),
+            ('B2','B2'),
+            ('C1','C1'),
+            ('C2','C2'),
+            ('D1','D1'),
+            ('D2','D2'),
+            ('E1','E1'),
+            ('E2','E2'),
+            ('F1','F1'),
+            ('F2','F2'),
+            ('G1','G1'),
+            ('G2','G2'),
+            ('H1','H1'),
+            ('H2','H2'),
+            ('I1','I1'),
+            ('I2','I2'),
+            ('J1','J1'),
+            ('J2','J2'),
+            
+        )
+    ))
+        
+ 

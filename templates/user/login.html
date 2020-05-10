@@ -2,37 +2,49 @@
 {% load static %}
 
 {% block body %}
-    <!-- STYLESHEET FOR THE PAGE -->
-    <link rel="stylesheet" type="text/css"
-        href="{% static 'css/login.css' %}" />
+<!-- STYLESHEET FOR THE PAGE -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 
-    <div class="container">
-        <div class="main-form">
-            <div class="grid-container">
-                <div class="grid-items login-form">
-                    <div style="width: 100%; text-align: center;">
-                        <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" class="user-img">
-                        <h3 style="font-size:1.5rem; width: 100%;">Account Login</h3>
+<div class="container">
+    <div class="main-form">
+        <div class="grid-container">
+            <div class="grid-items login-form">
+                <div style="width: 100%; text-align: center;">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" class="user-img">
+                    <h3 style="font-size:1.5rem; width: 100%;">Account Login</h3>
+                </div>
+                {% for message in messages %}
+
+                <p style="color: red; text-align: center; ">
+                    <!-- <a class="close" href="#" data-dismiss="alert">×</a> -->
+
+                    {{ message }}
+
+                </p>
+                {% endfor %}
+                <form action="" method="POST">
+                    {%csrf_token%}
+                    <div class="form-elem">
+                        <input type="text" required name="username" class="field">
+                        <label>username</label>
                     </div>
-                    <form action="" method="POST">
-                        {%csrf_token%}
-                        <div class="form-elem">
-                        <input type="text" required class="field">
-                        <label>Email</label>
-                        </div>
-                        <div class="form-elem">
-                        <input type="password" required class="field">
+                    <div class="form-elem">
+                        <input type="password" required name="password" class="field">
                         <label>Password</label>
                         <img src="https://img.icons8.com/pastel-glyph/64/000000/lock.png" class="lock-icon">
-                        <br><a href="#" style="text-decoration: none; color: #666; font-size: 0.7rem; float: right; position: relative;top: -1em; left: 1.9em;">Forget Password?</a>
-                        </div>
-                        <button class="login-btn">Login</button>
-                        <p style="font-size: 1rem;color: #999;">New User? <span><a href="/signup" style="color: #004C80;font-weight: 600;">SignUp</a></span> here!!</p>
-                    </form>
-                </div>
-                <div class="grid-items grid-img"><img src="{% static 'images/login_side.jpg' %}" style="width: 100%; height: 100%; border-bottom-right-radius: 2rem;"></div>
+                        <br><a href="#"
+                            style="text-decoration: none; color: #666; font-size: 0.7rem; float: right; position: relative;top: -1em; left: 1.9em;">Forget
+                            Password?</a>
+                    </div>
+                    <button class="login-btn">Login</button>
+                    <p style="font-size: 1rem;color: #999;">New User? <span><a href="/signup"
+                                style="color: #004C80;font-weight: 600;">SignUp</a></span> here!!</p>
+                </form>
             </div>
+            <div class="grid-items grid-img"><img src="{% static 'images/login_side.jpg' %}"
+                    style="width: 100%; height: 100%; border-bottom-right-radius: 2rem;"></div>
         </div>
     </div>
+</div>
 
 {% endblock %}

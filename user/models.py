@@ -14,3 +14,4 @@ class user_profile(models.Model):
     roomno = models.PositiveIntegerField(validators=[MinValueValidator(100,'please enter valid room no'),MaxValueValidator(999,'please enter valid room no')])
     #todo: make this a select field from dropdown
     hostel = models.CharField(max_length=255)
+    profile_pic = models.ImageField(upload_to='static/images/profile_pic',default = 'static/images/profile_pic/avatar.png')
