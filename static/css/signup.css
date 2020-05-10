@@ -10,7 +10,7 @@ body,html{
     width: 100%;
     height: 100%;
     font-family: sans-serif;
-    background-image: url('../images/signup_bg.jpg');
+    background-image: url('../images/login_bg.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -25,18 +25,18 @@ body,html{
     background: #fff;
     border-top-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
-    min-width: 250px;
+    min-width: 300px;
 }
 .grid-container{
     width: 100%;
     display: grid;
     grid-template-columns: 40% 60%;
 }
-.login-form{
+.signup-form{
     width: 100%;
     display: flex;
-    padding-top: 1.5vw;
-    padding-bottom: 1.5vw;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -49,15 +49,15 @@ body,html{
 }
 .field{
     padding: 0.2em;
-    margin-bottom: 1em;
+    margin-top: 1em;
     width: 90%;
     border: 0;
     border-bottom: 0.1em solid gray;
     font-size: 1rem;
     outline: none;
 }
-.login-btn{
-    padding: 0.6em 0.8em;
+.signup-btn{
+    padding: 0.6em 0.8em 0.6em 0.8em;
     width: 97%;
     font-size: 1rem;
     border-radius: 2em;
@@ -68,7 +68,7 @@ body,html{
     background: #fff;
     color: var(--primary-color);
 }
-.login-btn:hover{
+.signup-btn:hover{
     background: var(--primary-color);
     color: #fff;
 }
@@ -81,9 +81,6 @@ form{
     html{
         font-size: 14px;
     }
-    .main-form{
-        width: 50%;
-    }
     .grid-img {
       display: none;
     }
@@ -93,45 +90,49 @@ form{
     .field{
         width: 90%;
     }
-    .login-btn{
+    .main-form{
+        width: 50%;
+    }
+    .signup-btn{
         width: 80%;
         position: relative;
         left: 1rem;
     }
   }
   @media only screen and (max-width: 620px) {
-      html{
-          font-size: 12px;
-      }
-  }
+    html{
+        font-size: 12px;
+    }
+}
   .lock-icon{
-    width: 2.2rem;
-    float: right;
-    margin: 0;
-    position: relative;
-    top: -3.4rem;
-}
-.form-elem label{
-    float: left;
-    position: relative;
-    padding-left: 1em;
-    top: -2.8em;
-    font-size: 1rem;
-    color: #999;
-    transition: 0.2s all ease-in-out;
-}
-.form-elem input{
-    transition: 0.2s all ease-in-out;
+      width: 2.2rem;
+      float: right;
+      margin: 0;
+      position: relative;
+      top: -2.6rem;
+      right: 0.8em;
+  }
+  .form-elem label{
+      float: left;
+      position: relative;
+      top: -1.4em;
+      padding-left: 1.3em;
+      font-size: 1rem;
+      color: #999;
+      transition: 0.2s all ease-in-out;
+  }
+  .form-elem input{
+      transition: 0.2s all ease-in-out;
 }
 .form-elem input:focus  +label{
-  position: relative;
-  top: -3.6em;
-  font-size: 0.8rem;
-  color: #000;
+    position: relative;
+    top: -3em;
+    font-size: 0.8em;
+    color: #000;
 }
 .form-elem input:valid +label{
-  position: relative;
-  color: #000;
-  top: -3.6em;
-  font-size: 0.8rem;
+    position: relative;
+    color: #000;
+    top: -3em;
+    font-size: 0.8em;
 }
