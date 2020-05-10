@@ -53,13 +53,13 @@ body,html{
     width: 90%;
     border: 0;
     border-bottom: 0.1em solid gray;
-    font-size: 1em;
+    font-size: 1rem;
     outline: none;
 }
 .login-btn{
-    padding: 0.6em 0.8em 0.6em 0.8em;
+    padding: 0.6em 0.8em;
     width: 97%;
-    font-size: min(1em,3vw);
+    font-size: 1rem;
     border-radius: 2em;
     display: block;
     margin: auto;
@@ -125,13 +125,13 @@ form{
 }
 .form-elem input:focus  +label{
   position: relative;
-  top: -5.2em;
-  font-size: 0.6em;
+  top: -3.6em;
+  font-size: 0.8rem;
   color: #000;
 }
 .form-elem input:valid +label{
   position: relative;
   color: #000;
-  top: -5.2em;
-  font-size: 0.6em;
+  top: -3.6em;
+  font-size: 0.8rem;
 }
