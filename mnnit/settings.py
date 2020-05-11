@@ -42,7 +42,21 @@ INSTALLED_APPS = [
     #added
     'user',
     'qr',
+    'api',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
+
+#todo open this when setting for production
+# REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.TokenAuthentication',
+#    ),
+#    'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAdminUser',
+#    ),
+# }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
