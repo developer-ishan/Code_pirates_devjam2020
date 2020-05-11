@@ -1,5 +1,30 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% block body %}
+<link rel="stylesheet" type="text/css"
+        href="{% static 'css/index.css' %}"/>
+
+
+    <div id="landing">
+        {% include 'base/nav.html' %}
+        
+        <div id="greeting">
+            <h1>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id dolores maxime tenetur, nisi saepe labore pariatur minus exercitationem est doloribus praesentium tempore obcaecati cum alias fugit nam, enim vel quam!
+            </h1>
+
+            <h2>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi aut placeat ipsa ea, in, laboriosam voluptate ab fugit, omnis ut velit id beatae.
+           </h2>
+        </div>
+        
+        <div class="goto_container">
+            <div class="goto"><a href="">Mess Schedule</a></div>
+            <div class="goto"><a href="">Time Table</a></div>
+            <div class="goto"><a href="">Complaint</a></div>
+        </div>
+        
+    </div>
 <h1>welcome {{request.user}}</h1>
 <a href="{%url 'user:logout' %}" style="display: block;">logout</a>
 <a href="{%url 'qr:generateqr' %}">generate qr</a>

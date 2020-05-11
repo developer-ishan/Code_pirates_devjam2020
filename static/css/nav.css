@@ -1,0 +1,49 @@
+nav {
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 60px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    background-color: #278AB0;
+}
+
+#logo{
+    color: white;
+}
+nav .tab-container{
+    background-color: transparent;
+    list-style-type: none;
+    width: 500px;
+    padding: 0;
+    margin: 0;
+    justify-self: end;
+    display: block;
+}
+
+nav  .tab{
+    display: inline;
+}
+
+nav .tab a{
+    text-decoration: none;
+    color: white;
+    padding: 14px 16px;
+    text-align: center;
+    /* background-color: turquoise; */
+}
+
+nav img[alt = "user icon"] {
+    width: 60px;
+    height: 60px;
+    display: block;
+    justify-self: end;
+    border-radius: 50%;
+}
+
+nav .tab a:hover{
+    border-bottom: 3px solid white;
+}
