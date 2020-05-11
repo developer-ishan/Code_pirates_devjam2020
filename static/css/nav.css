@@ -36,14 +36,40 @@ nav .tab a{
     /* background-color: turquoise; */
 }
 
+#profile_pic:hover > .sidebar{
+    background-color: black;
+}
+#sidebar{
+    position: fixed;
+    background-color: black;
+    right: 0;
+    top: 75px;
+    width: 200px;
+    text-align: center;
+    display: none;
+}
+
+.side a{
+    display: block;
+    text-decoration: none;
+    padding: 25px;
+    color: white;
+}
 nav img[alt = "user icon"] {
     width: 60px;
     height: 60px;
-    display: block;
-    justify-self: end;
     border-radius: 50%;
+    display: block;
 }
 
+.side a:hover{
+    color: black;
+    background-color: white;
+}
 nav .tab a:hover{
     border-bottom: 3px solid white;
+}
+#profile_pic{
+    height: inherit;
+    vertical-align: middle;
 }
