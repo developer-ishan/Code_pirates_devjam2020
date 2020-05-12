@@ -29,7 +29,7 @@
             }
         });
 
-        xhr.open("GET", "http://localhost:8000/api/tick-status/20192028/False");
+        xhr.open("GET", "http://localhost:8000/api/tick-status/{{regno}}/False");
         xhr.setRequestHeader("Authorization", "Token 706f64fa4bed78543b9c4939349a53119f912fb2");
 
         xhr.send();
@@ -56,7 +56,7 @@
             }
         });
 
-        xhr.open("GET", "http://localhost:8000/api/tick-status/20192028/");
+        xhr.open("GET", "http://localhost:8000/api/tick-status/{{regno}}/");
         xhr.setRequestHeader("Authorization", "Token 706f64fa4bed78543b9c4939349a53119f912fb2");
 
         xhr.send();

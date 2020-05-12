@@ -10,4 +10,4 @@ class gate_entry_Serializer(serializers.ModelSerializer):
 class entry_status_serializer(serializers.ModelSerializer):
     class Meta:
         model = entry_status
-        fields = ['show_tick']
+        fields = ['show_tick','is_opening_entry']

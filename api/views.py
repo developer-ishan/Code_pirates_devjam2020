@@ -19,12 +19,19 @@ def show_tick_api(request,regno):
     serializer = entry_status_serializer(tick_data,many = False)
     return Response(serializer.data)
 
-# 1.this will toggle the status of show tick to false or true as per value of toggle
+# 2.this will toggle the status of show tick to false or true as per value of toggle
 @api_view(['GET'])
 def toggle_tick(request,regno,toggle):
     user = get_object_or_404(user_profile,regno = regno)
     tick_data = get_object_or_404(entry_status,user = user.user)
+    #this line is changing the tick status
     tick_data.show_tick = toggle
+    previous_entries = (gate_entry.objects.filter(regno = regno,intime = None))
+    #these conditions are setting is_opening a fresh entry
+    if previous_entries:
+        tick_data.is_opening_entry = False
+    else:
+        tick_data.is_opening_entry = True
     tick_data.save()
     serializer = entry_status_serializer(tick_data,many = False)
     return Response(serializer.data)
@@ -61,6 +68,9 @@ def create_gate_entry_api(request,regno):
         serializer = gate_entry_Serializer(data=data)
     
     if serializer.is_valid():
+        # tick_data = get_object_or_404(entry_status,user = user_details.user)
+        # #this line is changing the tick status to false after opening/closing gate entry
+        # tick_data.show_tick = False
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors)
