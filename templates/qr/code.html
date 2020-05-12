@@ -17,24 +17,6 @@
     let qr = document.getElementById('qr')
     let tick_status = false
 
-
-    function set_tick_to_false() {
-        console.log('converting to false')
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-
-        xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-                console.log(this.responseText);
-            }
-        });
-
-        xhr.open("GET", "http://localhost:8000/api/tick-status/{{regno}}/False");
-        xhr.setRequestHeader("Authorization", "Token 706f64fa4bed78543b9c4939349a53119f912fb2");
-
-        xhr.send();
-    }
-
     function check_tick_status() {
 
         var xhr = new XMLHttpRequest();
@@ -47,7 +29,6 @@
                 if (tick_status) {
                     console.log('changing src')
                     qr.src = '/static/success.gif'
-                    set_tick_to_false()
                     clearInterval(intervalid)
                 }
                 console.log(tick_status);
