@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from qr.models import gate_entry
 from .models import user_profile
-
+from api.models import entry_status
 
 # Create your views here.
 def home_view(request):
@@ -33,7 +33,7 @@ def user_signup_view(request):
             user = user_basic_data.save()
             user.set_password(user.password)
             user.save()
-
+            entry_status.objects.create(user=user)
             additional_data = user_additional_data.save(commit=False)
             additional_data.user = user
             # code for profile pic in case added to model

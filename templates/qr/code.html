@@ -11,7 +11,39 @@
     {% load static %}
 
     <img src="/{{profile_pic_url}}" alt="profile pic">
-    <img src="{{qr_url}}" alt="profile pic">
+    <img src="{{qr_url}}" alt="profile pic" id="qr">
 </body>
+<script>
+    let qr = document.getElementById('qr')
+    let tick_status = false
+
+    function check_tick_status() {
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                var myObj = JSON.parse(this.responseText);
+                tick_status = myObj.show_tick;
+                if (tick_status) {
+                    console.log('changing src')
+                    qr.src = '/static/success.gif'
+                    clearInterval(intervalid)
+                }
+                console.log(tick_status);
+
+
+            }
+        });
+
+        xhr.open("GET", "http://localhost:8000/api/tick-status/{{regno}}/");
+        xhr.setRequestHeader("Authorization", "Token 706f64fa4bed78543b9c4939349a53119f912fb2");
+
+        xhr.send();
+    }
+
+    intervalid = setInterval(check_tick_status, 500)
+</script>
 
 </html>
