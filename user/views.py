@@ -1,16 +1,24 @@
-from django.shortcuts import render,reverse
+from django.shortcuts import render,reverse,get_object_or_404
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from .forms import django_user_form,user_profile_form
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from qr.models import gate_entry
+from .models import user_profile
 
 
 # Create your views here.
 def home_view(request):
     if request.user.is_authenticated:
-        return render(request,'user/index.html')
+        user = get_object_or_404(user_profile,user = request.user)
+        regno = user.regno
+        entry = gate_entry.objects.filter(regno = regno,intime = None)
+        isInsideHostel=True
+        if entry:
+            isInsideHostel = False
+        return render(request,'user/index.html',{'isInsideHostel':isInsideHostel})
     else:
        return  HttpResponseRedirect(reverse('user:login'))
 
@@ -33,7 +41,7 @@ def user_signup_view(request):
             print('request file',request.FILES['profile_pic'])  
             additional_data.profile_pic = request.FILES['profile_pic']
             additional_data.save()
-            
+             
             return HttpResponseRedirect(reverse('user:login'))
         print(user_basic_data.errors,user_additional_data.errors)
     return render(request, 'user/signup.html', {
@@ -43,7 +51,7 @@ def user_signup_view(request):
 
 def user_login_view(request):
     if request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('user:home'))
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']

@@ -19,5 +19,6 @@ app_name='mnnit'
 urlpatterns = [
     path('admin/', admin.site.urls,name='admin'),
     path('', include('user.urls')),
+    path('api/', include('api.urls')),
     path('qr/',include('qr.urls')),
 ]

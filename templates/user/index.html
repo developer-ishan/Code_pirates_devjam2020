@@ -28,5 +28,10 @@
 <h1>welcome {{request.user}}</h1>
 <a href="{%url 'user:logout' %}" style="display: block;">logout</a>
 <a href="{%url 'qr:generateqr' %}">generate qr</a>
+{% if isInsideHostel%}
+<p>checkout</p>
+{% else %}
+<p>checkin</p>
+{%endif%}
 
 {% endblock %}
