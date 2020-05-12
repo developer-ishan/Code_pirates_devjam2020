@@ -42,13 +42,13 @@ class user_profile_form(forms.ModelForm):
         attrs={
             "class": "field"
         }, choices=(
-            ('cs', 'computer science'),
-            ('it', 'information technology'),
+            ('cs', 'Computer Science'),
+            ('it', 'Information Technology'),
             ('ece', 'Electronics & Comm.'),
             ('ee', 'Electrical'),
-            ('mech', 'mechanical'),
-            ('chemical', 'chemical'),
-            ('civil', 'cicil'),
+            ('mech', 'Mechanical'),
+            ('chemical', 'Chemical'),
+            ('civil', 'Civil'),
             ('pi', 'Production & Ind.'),
             ('bt', 'Biotechnology'),
             
@@ -59,8 +59,8 @@ class user_profile_form(forms.ModelForm):
         attrs={
             "class": "field"
         }, choices=(
-            ('svbh', 'svbh'),
-            ('kngh', 'kngh'),
+            ('svbh', 'SVBH'),
+            ('kngh', 'KNGH'),
             
             
             

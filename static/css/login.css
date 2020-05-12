@@ -115,7 +115,7 @@ form{
     float: left;
     position: relative;
     padding-left: 1em;
-    top: -2.8em;
+    top: -2.5em;
     font-size: 1rem;
     color: #999;
     transition: 0.2s all ease-in-out;
@@ -125,13 +125,14 @@ form{
 }
 .form-elem input:focus  +label{
   position: relative;
-  top: -3.6em;
-  font-size: 0.8rem;
+  top: -4.6em;
+  margin-bottom: 0.5em;
+  font-size: 0.6rem;
   color: #000;
 }
 .form-elem input:valid +label{
   position: relative;
   color: #000;
-  top: -3.6em;
-  font-size: 0.8rem;
+  top: -4.6em;
+  font-size: 0.6rem;
 }
