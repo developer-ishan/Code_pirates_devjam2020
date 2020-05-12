@@ -19,28 +19,26 @@
 
     function check_tick_status() {
 
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Token 706f64fa4bed78543b9c4939349a53119f912fb2");
 
-        xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-                var myObj = JSON.parse(this.responseText);
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8000/api/tick-status/20198043/", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                var myObj = JSON.parse(result);
                 tick_status = myObj.show_tick;
                 if (tick_status) {
-                    console.log('changing src')
                     qr.src = '/static/success.gif'
                     clearInterval(intervalid)
                 }
-                console.log(tick_status);
-
-
-            }
-        });
-
-        xhr.open("GET", "http://localhost:8000/api/tick-status/{{regno}}/");
-        xhr.setRequestHeader("Authorization", "Token 706f64fa4bed78543b9c4939349a53119f912fb2");
-
-        xhr.send();
+            })
+            .catch(error => console.log('error', error));
     }
 
     intervalid = setInterval(check_tick_status, 500)
