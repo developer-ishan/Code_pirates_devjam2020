@@ -14,13 +14,15 @@ def generate_qr(data):
         box_size = 5,
         border = 1,
     )
-    user_data = "Name:{}\nRegistration no:{}\nRoom No.:{}".format(data['user'],data['regno'],data['roomno'])
+    user_data = "Name:{}\nRegistration_no:{}\nRoom_No.:{}\nProfile_url:{}".format(data['user'],data['regno'],data['roomno'],data['profile_url'])
     qr.add_data(user_data)
     qr.make(fit=True)
     img = qr.make_image()
+    print('inside qr functioooooo')
     
+    img.save('image.jpg')
+    # img.save("/static/images/qr/{}.jpg".format(data['regno']))
   
-    img.save("static/images/qr/{}.jpg".format(data['regno']))
 
 #this function will create a gate entry
 def create_gate_entry(user_details):
@@ -41,16 +43,19 @@ def create_gate_entry(user_details):
 def generate_qr_view(request):
     
     user = user_profile.objects.filter(user = request.user)
-    user_profile_pic_url = user[0].profile_pic.url
-    print(user_profile_pic_url)
+    # user_profile_pic_url = user[0].profile_pic.url
+    # print(user_profile_pic_url)
     user_details = {
         'user':user[0].user,
         'regno':user[0].regno,
         'roomno':user[0].roomno,
-        'firstname':user[0].user.first_name
+        'firstname':user[0].user.first_name,
+        'profile_url':user[0].profile_pic.url
     }
     #this will generate a qr code image
+    print('generating qr.....')
     generate_qr(user_details)
+    print('qr generated')
     create_gate_entry(user_details)
     
     return render(request,'qr/code.html',{
