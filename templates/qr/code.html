@@ -11,7 +11,37 @@
     {% load static %}
 
     <img src="/{{profile_pic_url}}" alt="profile pic">
-    <img src="{{qr_url}}" alt="profile pic">
+    <img src="{{qr_url}}" alt="profile pic" id="qr">
 </body>
+<script>
+    let qr = document.getElementById('qr')
+    let tick_status = false
+
+    function check_tick_status() {
+
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Token 706f64fa4bed78543b9c4939349a53119f912fb2");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:8000/api/tick-status/20198043/", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                var myObj = JSON.parse(result);
+                tick_status = myObj.show_tick;
+                if (tick_status) {
+                    qr.src = '/static/success.gif'
+                    clearInterval(intervalid)
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
+
+    intervalid = setInterval(check_tick_status, 500)
+</script>
 
 </html>
