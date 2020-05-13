@@ -8,30 +8,108 @@
     <div id="landing">
         {% include 'base/nav.html' %}
         
-        <div id="greeting">
-            <h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id dolores maxime tenetur, nisi saepe labore pariatur minus exercitationem est doloribus praesentium tempore obcaecati cum alias fugit nam, enim vel quam!
-            </h1>
+        <div class="content-container">
+            <div class="content">
+                <h3 id="status">Status:
+                    <a href="{%url 'qr:generateqr' %}" style="color: #25d30a;">
+                        Generate QR
+                    </a>
+                    <span style="color: #25d30a;">
+                        
+                    </span>
+                    <br>
+                    <a href="#" style="font-size: 0.9rem; color: gray; font-weight: 600;">
+                        {% if isInsideHostel%}
+                            <p>Checkout->></p>
+                        {% else %}
+                            <p>Checkin&lt&lt-</p>
+                        {%endif%}
+                    </a>
+                </h3>
+            </div>
 
-            <h2>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi aut placeat ipsa ea, in, laboriosam voluptate ab fugit, omnis ut velit id beatae.
-           </h2>
+            <div class="content" id="healthcare">
+                <h3>
+                    HEALTHCARE FACILITIES
+                </h3>
+            </div>
+
+            <div class="content" id="welcome">
+                <h1 style="font-size: 1.5rem;">
+                    Tuesday, 13 May
+                </h1><br>
+                <p style="font-size: 1rem;">
+                    Good Morning !
+                <br><br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed magni aperiam con
+                </p>
+            </div>
+
+            <div class="content" id="mess_schedule">
+                <h1 id="mess_period">
+                    BREAKFAST
+                </h1>
+                <P id="menu">
+                    aalo parantha + aachar + coffee
+                </P>
+                <br>
+                <p>
+                    Would you be having breakfast today?
+                </p>
+                <br>
+                <div class="choice-container">
+                    <a href="" class="is-eating-choice">YES</a>
+                    <br>
+                    <a href="" class="is-eating-choice">NO</a>
+                </div>
+            </div>
+
+            <div class="content timetable-container">
+                <div class="subject">
+                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                    <div class="subject-properties" id="class-name">Maths</div>
+                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+                </div>
+                <div class="subject">
+                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                    <div class="subject-properties" id="class-name">Maths</div>
+                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+                </div>
+                <div class="subject">
+                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                    <div class="subject-properties" id="class-name">Maths</div>
+                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+                </div>
+                <div class="subject">
+                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                    <div class="subject-properties" id="class-name">Maths</div>
+                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+                </div>
+                <div class="subject">
+                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                    <div class="subject-properties" id="class-name">Maths</div>
+                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+                </div>
+                <div class="subject">
+                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                    <div class="subject-properties" id="class-name">Maths</div>
+                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+                </div>
+            </div>
         </div>
-        
-        <div class="goto_container">
-            <div class="goto"><a href="">Mess Schedule</a></div>
-            <div class="goto"><a href="">Time Table</a></div>
-            <div class="goto"><a href="">Complaint</a></div>
-        </div>
-        
-    </div>
 <h1>welcome {{request.user}}</h1>
-<a href="{%url 'user:logout' %}" style="display: block;">logout</a>
-<a href="{%url 'qr:generateqr' %}">generate qr</a>
-{% if isInsideHostel%}
+<!-- <a href="{%url 'user:logout' %}" style="display: block;">logout</a> -->
+<!-- <a href="{%url 'qr:generateqr' %}">generate qr</a> -->
+<!-- {% if isInsideHostel%}
 <p>checkout</p>
 {% else %}
 <p>checkin</p>
-{%endif%}
+{%endif%} -->
 
 {% endblock %}

@@ -1,58 +1,186 @@
+/* BODY */
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-html, body{
-    margin: 0px;
-    padding: 0px;
+html{
+    background-color: chartreuse;
+    font-size: 16px;
 }
-
-#landing{
-    background-color: turquoise;
-    background-image: url('../images/landing.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-bottom: 48px;
-    margin-top: 0px;
+body{
+    background-color: #fff;
+    font-family: Montserrat;
 }
-
-hr{
-    color: white;
-    background-color: white;
-    height: 7px;
-    border-radius: 25px;
-    width: 90%;
-    margin-top: 20px;
+a{
+    text-decoration: none;
 }
 
-#greeting{
-    color:white;
-    padding-top: 100px;
-    width: 500px;
+
+/* NAVIGATION BAR */
+/* .nav-container{
+    display: grid;
+    width: 96%;
+    margin: auto;
+    grid-template-columns:  3rem auto;
+    background-color: transparent;
+    align-items: center;
+    border-bottom: solid 0.1rem gray;
+}
+.nav-tab-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-self: right;
+    grid-gap: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: gray;
+    justify-items: center;
+    align-items: center;
+}
+.nav-tab{
     background-color: transparent;
 }
-.goto_container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 500px;
-    border-radius: 25px;
-    background-color: #278AB0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 60px;
-    margin-bottom: 75px;
-}
-
-.goto a{
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    padding: 10px;
+#logo img{
     display: block;
-    font-weight: bold;
-    border-radius: 50px;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0.3em 1em;
+}
+.user{
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0.3em 1em;
+} */
+
+/* MAIN CONTENT */
+.content-container{
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2em;
+    grid-gap: 1.3rem
+}
+.content{
+    padding: 1.3em;
+    padding-left: 0;
+    padding-bottom: 0;
 }
 
-.goto a:hover{
-    background-color: rgb(32, 108, 138);
+
+
+/* STATUS */
+#status{
+    display: inline-block;
+    text-align: center;
+    border: 0.1rem solid gray;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    padding: 0.5em 1.5em;
+    color: gray;
+    transition: box-shadow 0.5s ease-in-out;
+}
+#status:hover{
+    box-shadow: 0.5rem 0.5rem 0.6rem gray;
+}
+
+
+/* HELTHCARE */
+#healthcare{
+}
+#healthcare h3{
+    text-align: center;
+    border: 0.1rem solid gray;
+    border-radius: 0.5rem;
+    padding: 0.5em 1.5em;
+    display: block;
+    color: #666;
+    transition: box-shadow 0.5s ease-in-out;
+}
+#healthcare h3:hover{
+    box-shadow: 0.5rem 0.5rem 0.6rem gray;
+
+}
+
+
+/* WELCOME QUOTE */
+#welcome{
+    text-align: center;
+    background-color: rgb(141, 112, 196);
+    color: #fff;
+    padding: 1.5em 3.5em;
+    border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 980px) {
+    body {
+      font-size: 13px;
+    }
+  }
+  @media only screen and (max-width: 680px) {
+    body {
+      font-size: 10px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    body {
+      font-size: 7px;
+    }
+  }
+
+
+/* MESS SCHEDULE */
+#mess_schedule{
+    text-align: center;
+    border: 0.1rem solid gray;
+    border-radius: 0.5rem;
+    padding: 0.5em 3.5em;
+}
+#mess_period{
+    color: gray;
+    font-weight: 900;
+    margin-bottom: 0.5em;
+}
+.choice-container{
+    display: grid;
+}
+.is-eating-choice{
+    display: block;
+    padding: 1.3em;
+    color: gray;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+.is-eating-choice:hover{
+    background-color: rgb(141, 112, 196);
+    color: white;
+}
+
+
+/* TIMETABLE */
+.timetable-container{
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-gap: 1.3em;
+    background-color: transparent;
+}
+
+.subject{
+    background-color:white;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.subject-properties{
+    padding: 1em;
+}
+
+#class-time{
+    font-weight: 900;
+}
+
+#class-mark-attendance{
+    background-color: rgba(87, 42, 117, 0.979);
+    text-align: center;
+    color: white;
 }

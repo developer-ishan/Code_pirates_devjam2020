@@ -1,21 +1,31 @@
 {% load static %}
 <link rel="stylesheet" type="text/css"
     href="{% static 'css/nav.css' %}"/>
-<nav>
-    <div id = "logo"><b>CODE PIRATES</b></div>
-    <ul class="tab-container">
-        <li class="tab">
-            <a href="#">Home</a>
-        </li>
-        <li class="tab">
-            <a href="#">Checkout</a>
-        </li>
-        <li class="tab">
-            <a href="#">Community</a>
-        </li>
-        <li class="tab">
-            <a href="#">Contact</a>
-        </li>
-    </ul>
-    <img src="{% static 'images/profile_pic/WIN_20191002_20_23_08_Pro_226X4hY.jpg/' %}" alt="user icon">
+<nav class="nav-container">
+    <div id="logo">
+        <img src="https://img.icons8.com/ios/50/000000/nl-logo.png"/>
+    </div>
+    <div class="nav-tab-container">
+        <div class="nav-tab">
+            COMMUNITY
+        </div>
+        <div class="nav-tab">
+            CONTACT US
+        </div>
+        <div class="nav-tab">
+            <a href="{%url 'user:logout' %}" style="display: block;">
+                LOGOUT
+            </a>
+        </div>
+            <img src="https://img.icons8.com/metro/52/000000/user-male-circle.png" class="user">
+    </div>
+
+    <div class="sidebar-container">
+        <div class="sidebar-item">
+
+        </div>
+        <div class="sidebar-item">
+
+        </div>
+    </div>
 </nav>
