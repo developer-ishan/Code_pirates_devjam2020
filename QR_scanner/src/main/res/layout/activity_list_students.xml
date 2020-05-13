@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1EDF9B"
+    tools:context=".List_students">
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list_main"
+        android:layout_above="@id/bottom_nav_list"
+        android:backgroundTint="@color/colorPrimary"
+        />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btmbar_bg"
+        app:itemIconTint="@android:color/holo_red_dark"
+        app:labelVisibilityMode="unlabeled"
+        app:itemTextColor="#F10202"
+        app:menu="@menu/bttm_nav_menu"
+        android:id="@+id/bottom_nav_list"
+
+
+        />
+
+</RelativeLayout>

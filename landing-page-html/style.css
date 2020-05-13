@@ -1,0 +1,130 @@
+/* BODY */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    background-color: chartreuse;
+}
+body{
+    background-color: rgb(231, 228, 228);
+}
+
+/* NAVIGATION BAR */
+.nav-container{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    background-color: transparent;
+    align-items: center;
+    height: 50px;
+    border-bottom: solid 5px black;
+}
+.nav-tab-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 400px;
+    justify-self: right;
+    justify-items: center;
+    grid-gap: 10px;
+    align-items: center;
+}
+.nav-tab{
+    background-color: transparent;
+}
+#logo{
+    background-color: transparent;
+    margin-left: 20px;
+    display: block;
+}
+#user{
+
+}
+
+
+
+/* MAIN CONTENT */
+.content-container{
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 50px;
+    grid-gap: 20px;
+}
+.content{
+    background-color: cadetblue;
+    padding: 20px;
+}
+
+
+
+/* STATUS */
+#status{
+    text-align: center;
+    background-color: white;
+}
+
+
+
+/* HELTHCARE */
+#helthcare{
+    text-align: center;
+    background-color: white;
+}
+
+
+/* WELCOME QUOTE */
+#welcome{
+    text-align: center;
+    background-color: rgb(141, 112, 196);
+}
+
+
+
+/* MESS SCHEDULE */
+#mess_schedule{
+    text-align: center;
+    background-color: white;
+}
+.choice-container{
+    display: grid;
+}
+.is-eating-choice{
+    display: block;
+    padding: 20px;
+    color: black;
+    text-decoration: none;
+}
+.is-eating-choice:hover{
+    background-color: rgb(141, 112, 196);
+    color: white;
+}
+
+
+/* TIMETABLE */
+.timetable-container{
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-gap: 20px;
+    background-color: transparent;
+}
+
+.subject{
+    background-color:white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.subject-properties{
+    padding: 15px;
+}
+
+#class-time{
+    font-weight: 900;
+}
+
+#class-mark-attendance{
+    background-color: rgba(87, 42, 117, 0.979);
+    text-align: center;
+    color: white;
+}

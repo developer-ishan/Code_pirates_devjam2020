@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="border: 2px solid magenta;">
+        <h1>{{community.name}} - {{community.admin}}</h1>
+        <pre>{{community.desc}}</pre>
+    </div>
+    {% if request.user == community.admin%}
+    <a href="{% url 'community:update' community.slug %}">edit community details</a>
+    <a href="{% url 'community:delete' community.slug %}">delete community</a>
+    <a href="{% url 'community:create-post' community.slug %}">create new post</a>
+    {% endif %}
+    {% if posts.count %}
+    {% for post in posts %}
+    <div style="margin: 2em auto; border: 2px solid tomato;max-width: 650px;">
+        {% if request.user == community.admin %}
+        <a href="{% url 'community:update-post' post.id %}">edit this post</a>
+        {% endif %}
+        <p>{{post.created_at}}</p>
+        {% if post.post_img %}
+        <img src="/{{post.post_img.url}}" alt="" style="display: block;max-width: 100% ;">
+        {% endif %}
+        <p>{{post.post_desc}}</p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>no post available</p>
+    {%endif%}
+</body>
+
+</html>
