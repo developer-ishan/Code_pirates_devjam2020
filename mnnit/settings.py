@@ -26,7 +26,7 @@ SECRET_KEY = 'ym$&hq2)qio$x17pl5mfiufjx#46ve5mvdhd4=zr6r0)+$qvmx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 STATICFILES_DIRS = [STATICFILES_dir]
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user',
     'qr',
     'api',
+    'communities',
     'rest_framework',
     'rest_framework.authtoken',
 ]
