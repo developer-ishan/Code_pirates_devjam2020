@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('user.urls')),
     path('api/', include('api.urls')),
     path('qr/',include('qr.urls')),
+    path('community/',include('communities.urls')),
 ]
