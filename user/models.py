@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MinValueValidator
-
+from communities.models import community
 # Create your models here.
 
 
@@ -15,3 +15,4 @@ class user_profile(models.Model):
     #todo: make this a select field from dropdown
     hostel = models.CharField(max_length=255)
     profile_pic = models.ImageField(upload_to='static/images/profile_pic',default = 'static/images/profile_pic/avatar.png')
+    following = models.ManyToManyField(community,blank = True)

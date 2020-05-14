@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'communities',
     'rest_framework',
     'rest_framework.authtoken',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #todo open this when setting for production
 # REST_FRAMEWORK = {

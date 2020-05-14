@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>all community members</h1>
+    {% for member in members %}
+    <div style="border: 2px solid red; margin: 2em auto; max-width: 650px;">
+        <img src="/{{member.profile_pic.url}}" alt="member profile pic" style="max-width: 100%;display: block;">
+        <p class="member_name">{{member.user.first_name}}</p>
+        <p class="regno">{{member.regno}}</p>
+    </div>
+    {%endfor%}
+</body>
+
+</html>

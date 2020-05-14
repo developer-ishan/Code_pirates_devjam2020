@@ -10,13 +10,12 @@
 <body>
     {% load static %}
 
-    <img src="/{{profile_pic_url}}" alt="profile pic">
     <img src="{{qr_url}}" alt="profile pic" id="qr">
 </body>
 <script>
     let qr = document.getElementById('qr')
     let tick_status = false
-
+    //todo:before submittng please regenerate a token and use that
     function check_tick_status() {
 
         var myHeaders = new Headers();

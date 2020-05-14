@@ -35,6 +35,6 @@
 {% else %}
 <p>checkin</p>
 {%endif%}
-<a href="{% url 'community:all' %}">explore communities</a>
+<a href="{% url 'community:all' 'followed'%}">explore communities</a>
 
 {% endblock %}
