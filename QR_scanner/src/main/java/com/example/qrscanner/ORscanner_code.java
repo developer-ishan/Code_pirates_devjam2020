@@ -4,14 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.zxing.Result;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class ORscanner_code extends AppCompatActivity  implements ZXingScannerView.ResultHandler {
     ZXingScannerView scannerView;
-    public static String qr_data=null;
+    public static String qr_data = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +30,12 @@ public class ORscanner_code extends AppCompatActivity  implements ZXingScannerVi
 
     @Override
     public void handleResult(Result result) {
-        qr_data=result.getText();
-        startActivity(new Intent(getApplicationContext(),PopupWindow_ok.class));
+        qr_data = result.getText();
+
+        startActivity(new Intent(getApplicationContext(), PopupWindow_ok.class));
         onBackPressed();
     }
+
     @Override
     protected void onPause() {
         scannerView.stopCamera();
@@ -41,7 +52,9 @@ public class ORscanner_code extends AppCompatActivity  implements ZXingScannerVi
     @Override
     public void onBackPressed() {
         finish();
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
         super.onBackPressed();
     }
+
+
 }

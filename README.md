@@ -1,5 +1,5 @@
 # devjam
-this is my project for devjam 2020
+Project for devjam 2020
 
 
 
