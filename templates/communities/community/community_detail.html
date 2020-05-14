@@ -50,3 +50,46 @@
 </body>
 
 </html>
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<div style="border: 2px solid magenta;">
+    <img src="/{{community.community_img.url}}" alt="community logo" style="width: 100px; height: auto;">
+    <h1>{{community.name}} - {{community.admin}}</h1>
+    <pre>{{community.desc}}</pre>
+    <p>members: {{community.followed_by.count}}</p>
+    <!-- no controls are given for notice community -->
+    {% if community.name != 'notice'%}
+    {% if request.user in community.followed_by.all%}
+    <a href="{% url 'community:leave' community.slug %}">leave</a>
+    {% else %}
+    <a href="{% url 'community:join' community.slug %}">join</a>
+    {%endif%}
+    {%endif%}
+
+
+
+</div>
+{% if request.user == community.admin%}
+<a href="{% url 'community:update' community.slug %}">edit community details</a>
+<a href="{% url 'community:delete' community.slug %}">delete community</a>
+<a href="{% url 'community:create-post' community.slug %}">create new post</a>
+{% endif %}
+<a href="{% url 'community:members' community.slug %}">see members</a>
+{% if posts.count %}
+{% for post in posts %}
+<div style="margin: 2em auto; border: 2px solid tomato;max-width: 650px;">
+    {% if request.user == community.admin %}
+    <a href="{% url 'community:update-post' post.id %}">edit this post</a>
+    {% endif %}
+    <p>{{post.created_at}}</p>
+    {% if post.post_img %}
+    <img src="/{{post.post_img.url}}" alt="" style="display: block;max-width: 100% ;">
+    {% endif %}
+    <p>{{post.post_desc}}</p>
+</div>
+{% endfor %}
+{% else %}
+<p>no post available</p>
+{%endif%}
+{% endblock %}

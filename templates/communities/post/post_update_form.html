@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>save changes</button>
+    <a href="{% url 'community:detail' object.community.slug %}">cancel</a>
+    <a href="{% url 'community:delete-post' post.id %}">delete this post</a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>save changes</button>
-        <!-- todo:make a back link here back to its community page -->
-        <a href="{% url 'community:detail' object.community.slug %}">cancel</a>
-        <a href="{% url 'community:delete-post' post.id %}">delete this post</a>
-
-    </form>
-</body>
-
-</html>
+</form>
+{% endblock %}

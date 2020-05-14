@@ -1,42 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<!-- title -->
+{% if type == 'followed'%}
+<h1>the communities you follows</h1>
+{%elif type == 'my'%}
+<h1>communities created by you</h1>
+{%elif type == 'all'%}
+<h1>all the communities</h1>
+{%endif%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<!-- communities list -->
+<a href="{% url 'community:create'%}">create new community</a>
+{% for community in communities %}
+<a href="{% url 'community:detail' community.slug %}"
+    style="display: block; margin: 2em auto; border: 2px solid red;">{{community.name}}-{{community.admin}}</a>
 
-<body>
-    <!-- title -->
-    {% if type == 'followed'%}
-    <h1>the communities you follows</h1>
-    {%elif type == 'my'%}
-    <h1>communities created by you</h1>
-    {%elif type == 'all'%}
-    <h1>all the communities</h1>
-    {%endif%}
+{% endfor %}
 
-    <!-- communities list -->
-    <a href="{% url 'community:create'%}">create new community</a>
-    {% for community in communities %}
-    <a href="{% url 'community:detail' community.slug %}"
-        style="display: block; margin: 2em auto; border: 2px solid red;">{{community.name}}-{{community.admin}}</a>
-
-    {% endfor %}
-
-    <!-- if communities does not exist text -->
-    {%if not communities %}
-    {% if type == 'followed'%}
-    <p>follow communities to see them here</p>
-    {%elif type == 'my'%}
-    <p>create communities to see them here</p>
-    {%elif type == 'all'%}
-    <p>no communities to show</p>
-    {%endif%}
-    {%endif%}
-
-
-</body>
-
-</html>
+<!-- if communities does not exist text -->
+{%if not communities %}
+{% if type == 'followed'%}
+<p>follow communities to see them here</p>
+{%elif type == 'my'%}
+<p>create communities to see them here</p>
+{%elif type == 'all'%}
+<p>no communities to show</p>
+{%endif%}
+{%endif%}
+{% endblock %}
