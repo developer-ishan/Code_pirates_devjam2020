@@ -22,8 +22,10 @@
 {%if not communities %}
 {% if type == 'followed'%}
 <p>follow communities to see them here</p>
+<a href="{% url 'community:all' 'all' %}">see all communities</a>
 {%elif type == 'my'%}
 <p>create communities to see them here</p>
+<a href="{% url 'community:all' 'all' %}">see all communities</a>
 {%elif type == 'all'%}
 <p>no communities to show</p>
 {%endif%}
