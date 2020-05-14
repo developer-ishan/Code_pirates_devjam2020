@@ -1,12 +1,25 @@
-from django.shortcuts import render,get_object_or_404,HttpResponse
+from django.shortcuts import render,get_object_or_404,HttpResponse,HttpResponseRedirect,redirect
 from django.views.generic import CreateView, UpdateView, DeleteView,ListView,DetailView
 from .models import post,community
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 import datetime
 #this will assure that only admin can update or delete
 from django.contrib.auth.mixins import UserPassesTestMixin
 # Create your views here.
+
+@login_required
+def join_community(request,slug):
+    community_to_follow = get_object_or_404(community,slug = slug)
+    community_to_follow.followed_by.add(request.user)
+    return HttpResponseRedirect(reverse('community:detail', kwargs={'slug': slug}))
+    
+@login_required
+def leave_community(request,slug):
+    community_to_leave = get_object_or_404(community,slug = slug)
+    community_to_leave.followed_by.remove(request.user)
+    return HttpResponseRedirect(reverse('community:detail', kwargs={'slug': slug}))
 
 class community_list_view(LoginRequiredMixin,ListView):
     model = community

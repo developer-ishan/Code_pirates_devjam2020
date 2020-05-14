@@ -11,6 +11,9 @@
     <div style="border: 2px solid magenta;">
         <h1>{{community.name}} - {{community.admin}}</h1>
         <pre>{{community.desc}}</pre>
+        <p>members: {{community.followed_by.count}}</p>
+        <a href="{% url 'community:join' community.slug %}">join</a>
+        <a href="{% url 'community:leave' community.slug %}">leave</a>
     </div>
     {% if request.user == community.admin%}
     <a href="{% url 'community:update' community.slug %}">edit community details</a>
