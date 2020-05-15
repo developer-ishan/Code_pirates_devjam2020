@@ -31,7 +31,7 @@ def user_signup_view(request):
         user_basic_data = django_user_form(data=request.POST)
         user_additional_data = user_profile_form(request.POST,request.FILES)
         
-        if user_basic_data.is_valid() and user_additional_data.is_valid():
+        if user_basic_data.is_valid() and user_additional_data.is_valid() and request.FILES['profile_pic']:
             user = user_basic_data.save()
             user.set_password(user.password)
             user.save()
