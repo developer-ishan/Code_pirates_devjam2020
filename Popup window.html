@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height:100%; 
+  background-color: rgb(182, 186, 187); 
+  float: right;
+}
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid rgb(250, 3, 3);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 25px
+
+}
+#images{
+  display: inline-block;
+  margin: 10px;
+  
+}
+
+@media screen and (max-width:600px){
+  #images
+  {
+    display: block;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<button id="myBtn">Open Modal</button>
+
+<div id="myModal" class="modal">
+
+ 
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="Images">
+   <img src="logo.png " id="profile" alt="Profile Pic of Student">
+   <img src="logo.png" id="qrimage" alt="QR image"> 
+      <img src="df" id="gif" >
+  </div>
+  </div>
+
+</div>
+
+<script>
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "inline-block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
