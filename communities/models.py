@@ -31,5 +31,6 @@ class post(models.Model):
     created_at = models.DateTimeField()
 
 
-
+    def __str__(self):
+        return self.post_title
 # Create your models here.

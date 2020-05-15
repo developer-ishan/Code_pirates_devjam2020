@@ -1,95 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<style>
+    * {
+        /* outline: 2px solid red; */
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    #community-header {
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 
-<body>
-    <div style="border: 2px solid magenta;">
-        <img src="/{{community.community_img.url}}" alt="community logo" style="width: 100px; height: auto;">
-        <h1>{{community.name}} - {{community.admin}}</h1>
-        <pre>{{community.desc}}</pre>
-        <p>members: {{community.followed_by.count}}</p>
-        <!-- no controls are given for notice community -->
-        {% if community.name != 'notice'%}
-        {% if request.user in community.followed_by.all%}
-        <a href="{% url 'community:leave' community.slug %}">leave</a>
-        {% else %}
-        <a href="{% url 'community:join' community.slug %}">join</a>
-        {%endif%}
-        {%endif%}
+    }
+</style>
+<div class="bg-gray-200">
+    <div id="community-header" class="md:m-4 flex flex-col bg-white shadow-xl transition-all duration-500 ease-in-out">
+        <div class="flex flex-col md:flex-row md:justify-center w-full md:w-6xl mb-4">
+            <img src="/{{community.community_img.url}}" class="w-48  h-48 my-2 mx-auto md:mx-0 rounded-full">
 
+            <div class=" flex flex-col items-center md:items-start justify-center text-center mx-10">
+                <h1 class="text-4xl">{{community.name}}</h3><br>
+                    <h2 class="text-xl capitalize">Admin:{{community.admin}}</h3>
+                        <p class=" my-4 text-center">
+                            {{community.desc}}
+                        </p>
+            </div>
+        </div>
+        <div class="px-4 py-2 flex flex-col sm:flex-row items-center justify-between">
+            <a class="float-left text-gray-700 text-lg my-3"
+                href="{% url 'community:members' community.slug %}">Members:{{community.followed_by.count}}</a>
+            <div class="flex flex-col md:flex-row text-center capitalize justify-around">
+                {% if request.user == community.admin%}
+                <a href="{% url 'community:update' community.slug %}"
+                    class="bg-white m-1 text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">edit
+                    community details</a>
+                <a href="{% url 'community:delete' community.slug %}"
+                    class="bg-white m-1 text-red-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-red-500 hover:text-white border border-red-500">delete
+                    community</a>
+                <a href="{% url 'community:create-post' community.slug %}"
+                    class="bg-white m-1 text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">create
+                    new post</a>
+                {% endif %}
 
-
+            </div>
+            {% if community.name != 'notice'%}
+            {% if request.user in community.followed_by.all%}
+            <a href="{%url 'community:leave' community.slug %}"
+                class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">&times;
+                leave</a>
+            {% else %}
+            <a href="{% url 'community:join' community.slug%}"
+                class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">+
+                join</a>
+            {%endif%}
+            {%endif%}
+        </div>
     </div>
-    {% if request.user == community.admin%}
-    <a href="{% url 'community:update' community.slug %}">edit community details</a>
-    <a href="{% url 'community:delete' community.slug %}">delete community</a>
-    <a href="{% url 'community:create-post' community.slug %}">create new post</a>
-    {% endif %}
-    <a href="{% url 'community:members' community.slug %}">see members</a>
+
+
+
+
     {% if posts.count %}
     {% for post in posts %}
-    <div style="margin: 2em auto; border: 2px solid tomato;max-width: 650px;">
-        {% if request.user == community.admin %}
-        <a href="{% url 'community:update-post' post.id %}">edit this post</a>
-        {% endif %}
-        <p>{{post.created_at}}</p>
-        {% if post.post_img %}
-        <img src="/{{post.post_img.url}}" alt="" style="display: block;max-width: 100% ;">
-        {% endif %}
-        <p>{{post.post_desc}}</p>
+
+    <div class=" px-10 py-10">
+        <div
+            class="text-center max-w-xl mx-auto rounded-lg flex flex-col bg-white hover:shadow-xl transition-all duration-500 ease-in-out">
+            <!-- card header -->
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center items-start">
+                <h2 class="mt-2 text-xl flex items-center">
+                    <img src="/{{community.community_img.url}}" class="w-12 h-12 my-2 mx-3  rounded-full">
+                    {{community.name}}
+                </h2>
+                {% if request.user == community.admin%}
+
+                <a href="{% url 'community:update-post' post.id %}"
+                    class="bg-white w-full sm:w-auto text-red-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-red-500 hover:text-white border border-red-500">edit
+                    this post</a>
+                {% endif %}
+            </div><!-- closing card header -->
+
+
+            <!-- card content -->
+            <div class="pr-4 py-2 ml-3">
+                <h1 class="text-left text-lg my-2 mx-2 text-gray-500">{{post.created_at}}</h1>
+                <h1 class="text-left font-black capitalize text-lg my-2 mx-2">{{post.post_title}}</h1>
+            </div>
+            {% if post.post_img %}
+            <img src="/{{post.post_img.url}}" class="w-full px-2">
+            {%endif%}
+            <p class="clear-both my-2 mx-2 text-left px-4 py-2">{{post.post_desc}}</p>
+
+
+        </div>
+
     </div>
+
+
+
+
     {% endfor %}
     {% else %}
     <p>no post available</p>
     {%endif%}
-</body>
-
-</html>
-{% extends 'base/base.html' %}
-{% load static %}
-{% block body %}
-<div style="border: 2px solid magenta;">
-    <img src="/{{community.community_img.url}}" alt="community logo" style="width: 100px; height: auto;">
-    <h1>{{community.name}} - {{community.admin}}</h1>
-    <pre>{{community.desc}}</pre>
-    <p>members: {{community.followed_by.count}}</p>
-    <!-- no controls are given for notice community -->
-    {% if community.name != 'notice'%}
-    {% if request.user in community.followed_by.all%}
-    <a href="{% url 'community:leave' community.slug %}">leave</a>
-    {% else %}
-    <a href="{% url 'community:join' community.slug %}">join</a>
-    {%endif%}
-    {%endif%}
-
-
-
+    {% endblock %}
 </div>
-{% if request.user == community.admin%}
-<a href="{% url 'community:update' community.slug %}">edit community details</a>
-<a href="{% url 'community:delete' community.slug %}">delete community</a>
-<a href="{% url 'community:create-post' community.slug %}">create new post</a>
-{% endif %}
-<a href="{% url 'community:members' community.slug %}">see members</a>
-{% if posts.count %}
-{% for post in posts %}
-<div style="margin: 2em auto; border: 2px solid tomato;max-width: 650px;">
-    {% if request.user == community.admin %}
-    <a href="{% url 'community:update-post' post.id %}">edit this post</a>
-    {% endif %}
-    <p>{{post.created_at}}</p>
-    {% if post.post_img %}
-    <img src="/{{post.post_img.url}}" alt="" style="display: block;max-width: 100% ;">
-    {% endif %}
-    <p>{{post.post_desc}}</p>
-</div>
-{% endfor %}
-{% else %}
-<p>no post available</p>
-{%endif%}
-{% endblock %}
