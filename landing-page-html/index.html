@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
 
@@ -20,13 +20,25 @@
                 </div>
             </div>
         </nav>
+        <!-- POP up window-->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div id="images">
+             <img src="logo.png " id="profile" alt="Profile Pic of Student">
+             <img src="logo.png" id="qrimage" alt="QR image"> 
+            <img src="df" id="gif" >
+            </div>
+            </div>
+          </div>
 
 
 
         <div class="content-container">
             <div class="content" id="status">
                 Status : <span>Checked in !!</span><br>
-                <a href="">Checkout</a>
+                <a id="checkout">Checkout</a>
+                
             </div>
 
             <div class="content" id="helthcare">
@@ -34,7 +46,9 @@
                     HELTHCARE FACILITIES
                 </h3>
             </div>
-
+           
+              
+    
             <div class="content" id="welcome">
                 <h1 id="date">
                     Tuesday, 13 May
@@ -107,5 +121,26 @@
                 </div>
             </div>
         </div>
+        <script>
+            var modal = document.getElementById("myModal");
+            
+            var btn = document.getElementById("checkout");
+
+            var span = document.getElementsByClassName("close")[0];
+            
+            btn.onclick = function() {
+              modal.style.display = "inline-block";
+            }
+            
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
     </body>
 </html>
