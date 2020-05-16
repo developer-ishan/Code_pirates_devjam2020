@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'qr',
     'api',
     'communities',
+    'mess',
     'rest_framework',
     'rest_framework.authtoken',
     'crispy_forms',

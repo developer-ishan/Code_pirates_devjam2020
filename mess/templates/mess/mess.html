@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/mess.css' %}" />
+<div class="content" id="mess_schedule">
+    <h1 id="mess_period">
+        {{ meal|upper }}
+        <a href=""></a>
+    </h1>
+    <br>
+    {% if is_meal_voted %}
+            
+            {% if will_eat %}
+                <h1>Enjoy your meal</h1>
+                <br>
+                <h3>{{ current_meal|title }}</h3>
+                <a href="http://127.0.0.1:8000/mess/no/" class="is-eating-choice">CHANGE</a>
+            {% else %}
+                <h1>Thanks for saving food</h1>
+                <br>
+                <h3>{{ current_meal|title }}</h3>
+                <a href="http://127.0.0.1:8000/mess/yes/" class="is-eating-choice">CHANGE</a>
+            {% endif %}
+
+    {% else %}
+        <p>
+            Would you be having next {{ meal|lower }} ?
+        </p>
+        <br>
+        <h3 id="menu">
+            {{ current_meal|title }}
+        </h3>
+        <br>
+        <div class="choice-container">
+            <a href="http://127.0.0.1:8000/mess/yes/" class="is-eating-choice">YES</a>
+            <br>
+            <a href="http://127.0.0.1:8000/mess/no/" class="is-eating-choice">NO</a>
+        </div>
+    {% endif %}
+</div>

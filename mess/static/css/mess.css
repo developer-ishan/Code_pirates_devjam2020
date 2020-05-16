@@ -1,0 +1,25 @@
+#mess_schedule{
+    text-align: center;
+    border: 0.1rem solid gray;
+    border-radius: 0.5rem;
+    padding: 0.5em 3.5em;
+}
+#mess_period{
+    color: gray;
+    font-weight: 900;
+    margin-bottom: 0.5em;
+}
+.choice-container{
+    display: grid;
+}
+.is-eating-choice{
+    display: block;
+    padding: 1.3em;
+    color: gray;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+.is-eating-choice:hover{
+    background-color: rgb(141, 112, 196);
+    color: white;
+}

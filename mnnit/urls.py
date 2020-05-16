@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('qr/',include('qr.urls')),
     path('community/',include('communities.urls')),
+    path('mess/',include('mess.urls')),
 ]
