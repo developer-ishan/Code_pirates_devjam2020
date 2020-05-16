@@ -24,6 +24,7 @@
                 {% endfor %}
                 <form action="" method="POST">
                     {%csrf_token%}
+                    <input type="hidden" name="next" value='{{ request.GET.next }}'>
                     <div class="form-elem">
                         <input type="text" required name="username" class="field">
                         <label>Username</label>

@@ -63,6 +63,10 @@ def user_login_view(request):
         user = authenticate(username = username,password = password)
         if user:
             login(request,user)
+            next_url = request.POST.get('next')
+            if next_url and next_url != '/':
+                return HttpResponseRedirect(next_url)
+            
             if user.is_superuser:
                 return HttpResponseRedirect('/admin/')
             return HttpResponseRedirect(reverse('user:home'))
