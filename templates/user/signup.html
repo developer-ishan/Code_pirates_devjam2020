@@ -29,7 +29,7 @@
 }
 </style>
 
-<div class="w-full h-screen flex items-center justify-center">
+<div class="w-full h-screen flex items-center justify-center my-12">
     <div class="bg-white w-11/12 sm:w-3/5 md:w-1/2 xl:w-3/5 lg:w-3/4 flex" style="border-bottom-right-radius: 1.5rem; border-top-left-radius: 1.5rem;">
         <div class="w-full xl:w-1/2 lg:w-3/5 flex justify-center items-center flex-col mx-0">
                 <div class="flex justify-center items-center flex-col">
@@ -42,34 +42,34 @@
                     {{user_basic_form.errors}}
                     {{user_additional_form.errors}}
 
-                    <div class="form-elem my-3">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.username}}
-                        <label id="anima" onclick="niceAnims(0)">Username</label>
+                        <label id="anima" onclick="clickEffect(0)">Username</label>
                     </div>
 
-                    <div class="form-elem my-3">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.first_name}}
-                        <label id="anima" onclick="niceAnims(1)">Firstname</label>
+                        <label id="anima" onclick="clickEffect(1)">Firstname</label>
                     </div>
 
-                    <div class="form-elem my-3">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.last_name}}
-                        <label id="anima" onclick="niceAnims(2)">Lastname</label>
+                        <label id="anima" onclick="clickEffect(2)">Lastname</label>
                     </div>
 
-                    <div class="form-elem my-3">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_additional_form.regno}}
-                        <label id="anima" onclick="niceAnims(3)">Reg. No.</label>
+                        <label id="anima" onclick="clickEffect(3)">Reg. No.</label>
                     </div>
 
-                    <div class="form-elem my-3">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_additional_form.roomno}}
-                        <label id="anima" onclick="niceAnims(4)">Room No.</label>
+                        <label id="anima" onclick="clickEffect(4)">Room No.</label>
                     </div>
 
-                    <div class="form-elem my-3">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.email}}
-                        <label id="anima" onclick="niceAnims(5)">Email</label>
+                        <label id="anima" onclick="clickEffect(5)">Email</label>
                     </div>
 
                     {{user_additional_form.group}}
@@ -81,9 +81,9 @@
 
                     {{user_additional_form.branch}}
 
-                    <div class="form-elem my-3">
+                    <div class="form-elem my-2 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.password}}
-                        <label id="anima" onclick="niceAnims(6)">Password</label>
+                        <label id="anima" onclick="clickEffect(6)">Password</label>
                     </div>
                     <button class="px-4 py-2 text-blue-500 mx-auto border-2 border-blue-500 w-full rounded-full hover:bg-blue-500 hover:text-white font-semibold my-4">Register</button>
                     <p class="text-center text-gray-500 font-semibold text-lg">Already A User? <span><a href="/login" class="text-blue-900">Login</a></span> Here!!</p>
@@ -101,7 +101,6 @@
         document.querySelectorAll('#anima')[index].style.top= '-4em' 
         document.querySelectorAll('#anima')[index].style.color='#000' 
         document.querySelectorAll('#anima')[index].style.fontSize='0.8rem'
-        document.querySelectorAll('#fieldVal')[index].focus()
     }
     function returnBack(index){
         el = document.querySelectorAll('#fieldVal')[index]
@@ -112,6 +111,10 @@
         document.querySelectorAll('#anima')[index].style.color='#888' 
         document.querySelectorAll('#anima')[index].style.fontSize='1rem'
         }
+    }
+    function clickEffect(index){
+        document.querySelectorAll('#fieldVal')[index].focus()
+        niceAnims(index)
     }
 </script>
 {% endblock %}

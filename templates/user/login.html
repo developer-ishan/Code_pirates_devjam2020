@@ -48,11 +48,11 @@
                     {%csrf_token%}
                     <div class="form-elem my-3">
                         <input type="text" required name="username" class="border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none" id="fieldVal" onfocus="niceAnims(0)" onblur="returnBack(0)"><br>
-                        <label id="anima" onclick="niceAnims(0)">Username</label>
+                        <label id="anima" onclick="clickEffect(0)">Username</label>
                     </div>
                     <div class="form-elem my-3">
                         <input type="password" required name="password" class="border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none" id="fieldVal" onfocus="niceAnims(1)" onblur="returnBack(1)"><br>
-                        <label id="anima" onclick="niceAnims(1)">Password</label>
+                        <label id="anima" onclick="clickEffect(1)">Password</label>
                     </div>
                     <button class="px-4 py-2 text-blue-500 mx-auto border-2 border-blue-500 w-full rounded-full hover:bg-blue-500 hover:text-white font-semibold my-4">Login</button>
                 <p class="text-center text-gray-500 font-semibold text-lg">New User? <span><a href="/signup" class="text-blue-900">SignUp</a></span> Here!!</p>
@@ -68,7 +68,6 @@
         document.querySelectorAll('#anima')[index].style.top= '-4em' 
         document.querySelectorAll('#anima')[index].style.color='#000' 
         document.querySelectorAll('#anima')[index].style.fontSize='0.8rem'
-        document.querySelectorAll('#fieldVal')[index].focus()
     }
     function returnBack(index){
         el = document.querySelectorAll('#fieldVal')[index]
@@ -79,6 +78,10 @@
         document.querySelectorAll('#anima')[index].style.color='#888' 
         document.querySelectorAll('#anima')[index].style.fontSize='1rem'
         }
+    }
+    function clickEffect(index){
+        document.querySelectorAll('#fieldVal')[index].focus()
+        niceAnims(index)
     }
 </script>
 
