@@ -5,6 +5,7 @@ app_name='community'
 urlpatterns = [
     path('create',community_create_view.as_view(),name="create"),
     path('<slug:slug>/view',community_detail_view.as_view(),name="detail"),
+    path('<slug:slug>/theme/<int:theme_num>/',community_theme,name="theme"),
     path('<slug:slug>/members',community_member_list.as_view(),name="members"),
     path('<slug:slug>/join',join_community,name="join"),
     path('<slug:slug>/leave',leave_community,name="leave"),
