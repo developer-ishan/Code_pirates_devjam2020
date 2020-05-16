@@ -6,7 +6,7 @@ from .forms import django_user_form,user_profile_form
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from qr.models import gate_entry
-from .models import user_profile
+from .models import user_profile,complaint
 from api.models import entry_status
 from communities.models import community
 
@@ -73,7 +73,7 @@ def user_login_view(request):
         else:
             if User.objects.filter(username=username):
                 messages.error(request, 'invalid password')
-            else:
+            else: 
                 messages.error(
                     request, 'no user with username {} exist,username is case sensitive'.format(username))
             return HttpResponseRedirect(reverse('user:login'))
@@ -84,3 +84,14 @@ def user_login_view(request):
 def user_logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('user:login'))
+
+@login_required
+def user_complaint_view(request):
+    if request.method == "POST":
+        sender = get_object_or_404(user_profile,user = request.user)
+        text = request.POST['complaint']
+        complaint.objects.create(sender = sender,desc = text)
+        print('complaint added')
+        return HttpResponseRedirect(reverse('user:home'))
+    
+    return render(request,'user/index.html',{})

@@ -14,3 +14,12 @@ class user_profile(models.Model):
     hostel = models.CharField(max_length=255)
     profile_pic = models.ImageField(upload_to='static/images/profile_pic',default = 'static/images/profile_pic/avatar.png')
     following = models.ManyToManyField(community,blank = True)
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+
+class complaint(models.Model):
+    sender = models.ForeignKey(user_profile,on_delete=models.PROTECT)
+    desc = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)

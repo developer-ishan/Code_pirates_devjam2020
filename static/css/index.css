@@ -1,18 +1,20 @@
 /* BODY */
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-html{
-    background-color: chartreuse;
+
+html {
     font-size: 16px;
 }
-body{
+
+body {
     background-color: #fff;
     font-family: Montserrat;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
@@ -54,14 +56,15 @@ a{
 } */
 
 /* MAIN CONTENT */
-.content-container{
+.content-container {
     background-color: transparent;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2em;
     grid-gap: 1.3rem
 }
-.content{
+
+.content {
     padding: 1.3em;
     padding-left: 0;
     padding-bottom: 0;
@@ -70,7 +73,7 @@ a{
 
 
 /* STATUS */
-#status{
+#status {
     display: inline-block;
     text-align: center;
     border: 0.1rem solid gray;
@@ -80,15 +83,16 @@ a{
     color: gray;
     transition: box-shadow 0.5s ease-in-out;
 }
-#status:hover{
+
+#status:hover {
     box-shadow: 0.5rem 0.5rem 0.6rem gray;
 }
 
 
 /* HELTHCARE */
-#healthcare{
-}
-#healthcare h3{
+#healthcare {}
+
+#healthcare h3 {
     text-align: center;
     border: 0.1rem solid gray;
     border-radius: 0.5rem;
@@ -97,14 +101,15 @@ a{
     color: #666;
     transition: box-shadow 0.5s ease-in-out;
 }
-#healthcare h3:hover{
+
+#healthcare h3:hover {
     box-shadow: 0.5rem 0.5rem 0.6rem gray;
 
 }
 
 
 /* WELCOME QUOTE */
-#welcome{
+#welcome {
     text-align: center;
     background-color: rgb(141, 112, 196);
     color: #fff;
@@ -114,72 +119,78 @@ a{
 
 @media only screen and (max-width: 980px) {
     body {
-      font-size: 13px;
+        font-size: 13px;
     }
-  }
-  @media only screen and (max-width: 680px) {
+}
+
+@media only screen and (max-width: 680px) {
     body {
-      font-size: 10px;
+        font-size: 10px;
     }
-  }
-  @media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 480px) {
     body {
-      font-size: 7px;
+        font-size: 7px;
     }
-  }
+}
 
 
 /* MESS SCHEDULE */
-#mess_schedule{
+#mess_schedule {
     text-align: center;
     border: 0.1rem solid gray;
     border-radius: 0.5rem;
     padding: 0.5em 3.5em;
 }
-#mess_period{
+
+#mess_period {
     color: gray;
     font-weight: 900;
     margin-bottom: 0.5em;
 }
-.choice-container{
+
+.choice-container {
     display: grid;
 }
-.is-eating-choice{
+
+.is-eating-choice {
     display: block;
     padding: 1.3em;
     color: gray;
     border-radius: 0.5rem;
     text-decoration: none;
 }
-.is-eating-choice:hover{
+
+.is-eating-choice:hover {
     background-color: rgb(141, 112, 196);
     color: white;
 }
 
 
 /* TIMETABLE */
-.timetable-container{
+.timetable-container {
     grid-column: 1 / span 2;
     display: grid;
     grid-gap: 1.3em;
     background-color: transparent;
 }
 
-.subject{
-    background-color:white;
+.subject {
+    background-color: white;
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
 
-.subject-properties{
+.subject-properties {
     padding: 1em;
 }
 
-#class-time{
+#class-time {
     font-weight: 900;
 }
 
-#class-mark-attendance{
+#class-mark-attendance {
     background-color: rgba(87, 42, 117, 0.979);
     text-align: center;
     color: white;

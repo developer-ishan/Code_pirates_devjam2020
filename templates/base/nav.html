@@ -1,33 +1,42 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}" />
-<nav class="nav-container">
-    <div id="logo">
-        <img src="https://img.icons8.com/ios/50/000000/nl-logo.png" />
-    </div>
-    <div class="nav-tab-container">
-        <div class="nav-tab">
-            <a href="{%url 'community:all' 'followed' %}" style="display: block; text-transform: uppercase;">
-                community
-            </a>
+<style>
+    .nav-link:hover,
+    .nav-link:focus {
+        border-bottom: 2px solid grey;
+    }
+
+    .nav-link {
+        border: 2px solid transparent;
+    }
+</style>
+<nav class="flex items-center justify-between w-full bg-teal-200 py-2 font-sans">
+    <a href="{% url 'user:home'%}" class="ml-10">
+        <div class="  flex flex-row justify-center items-center">
+
+            <img src="{% static 'images/mnnit.jpg' %}" class=" cursor-pointer  mr-2 h-12  " alt=" brand logo">
+            <P class="font-bold text-white">MNNIT <br> <span class="text-gray-600 italic">utilities</span></P>
         </div>
-        <div class="nav-tab">
-            CONTACT US
-        </div>
-        <div class="nav-tab">
-            <a href="{%url 'user:logout' %}" style="display: block;">
-                LOGOUT
-            </a>
-        </div>
-        <!-- todo change this img src from fixed to general -->
-        <img src="https://img.icons8.com/metro/52/000000/user-male-circle.png" class="user">
+    </a>
+    <div class="nav-list ml-4  flex flex-row justify-around ">
+        <a href="{% url 'community:all' 'followed' %}"
+            class="nav-link text-base capitalize text-teal-800  mx-2 p-2 hover:text-blue-500">community</a>
+        <a href="{% url 'qr:generateqr' %}"
+            class="nav-link text-base capitalize text-teal-800 mx-2  p-2 hover:text-blue-500">
+            {% if isInsideHostel%}
+            <p>checkout</p>
+            {% else %}
+            <p>checkin</p>
+            {%endif%}
+        </a>
+        <a href="#contact" class="nav-link text-base capitalize text-teal-800 mx-2 p-2  hover:text-blue-500">contact
+            us</a>
+        <a href="{% url 'user:logout'%}"
+            class="nav-link text-base capitalize text-teal-800  mx-2 p-2 hover:text-blue-500">logout</a>
     </div>
 
-    <div class="sidebar-container">
-        <div class="sidebar-item">
-
-        </div>
-        <div class="sidebar-item">
-
-        </div>
+    <div class=" mr-10 capitalize text-lg font-bold">
+        <i class="fa fa-user text-white text-2xl"></i>
+        hello,{{request.user.first_name}}
     </div>
+
 </nav>
