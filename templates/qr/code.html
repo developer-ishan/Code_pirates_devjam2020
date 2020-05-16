@@ -26,7 +26,7 @@
             headers: myHeaders,
             redirect: 'follow'
         };
-
+        // todo change this hardcoded regno to dynamic
         fetch("http://localhost:8000/api/tick-status/20198043/", requestOptions)
             .then(response => response.text())
             .then(result => {

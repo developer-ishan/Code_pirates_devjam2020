@@ -6,11 +6,11 @@
         /* outline: 2px solid red; */
     }
 
-    #community-header {
-        background-color: #8EC5FC;
-        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    /* #community-header {
+        background-image: #fff;
 
-    }
+
+    } */
 </style>
 <div class="bg-gray-200">
     <div id="community-header" class="md:m-4 flex flex-col bg-white shadow-xl transition-all duration-500 ease-in-out">
@@ -57,8 +57,19 @@
     </div>
 
 
+    {% if request.user == community.admin %}
+    <div class="text-center">
 
-
+        <p>set community theme</p>
+        <br>
+        <button onclick="setTheme(0)" class="theme0 p-4 xs:p-6 md:p-8"></button>
+        <button onclick="setTheme(1)" class="theme1 p-4 xs:p-6 md:p-8"></button>
+        <button onclick="setTheme(2)" class="theme2 p-4 xs:p-6 md:p-8"></button>
+        <button onclick="setTheme(3)" class="theme3 p-4 xs:p-6 md:p-8"></button>
+        <button onclick="setTheme(4)" class="theme4 p-4 xs:p-6 md:p-8"></button>
+    </div>
+    {%endif%}
+    <!-- <button type="button" onclick="myFunction()">Set background color</button> -->
     {% if posts.count %}
     {% for post in posts %}
 
@@ -102,5 +113,33 @@
     {% else %}
     <p>no post available</p>
     {%endif%}
-    {% endblock %}
+
 </div>
+<script>
+    let element = document.querySelector('#community-header')
+
+    // function myFunction() {
+    //     console.log('i was called')
+    //     element.style.backgroundImage = "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);";
+    // }
+
+
+    let theme_from_server = "{{community.theme}}"
+    element.classList.add(`theme${theme_from_server}`)
+    console.log(theme_from_server)
+
+    function setTheme(theme_num) {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch(`http://localhost:8000/community/{{community.slug}}/theme/${theme_num}`, requestOptions)
+
+        const cls = ["theme0", "theme1", "theme2", "theme3", "theme4"];
+        element.classList.remove(...cls);
+        element.classList.add(`theme${theme_num}`)
+
+    }
+</script>
+{% endblock %}

@@ -15,6 +15,7 @@ class community(models.Model):
     followed_by = models.ManyToManyField(User,blank = True)
     slug = models.SlugField(default='')
     community_img = models.ImageField(upload_to='static/images/communities_img',default = 'static/images/communities_img/community_default.png')
+    theme = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

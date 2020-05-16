@@ -26,6 +26,30 @@ def leave_community(request,slug):
     logged_in_user.following.remove(community_to_leave)
     return HttpResponseRedirect(reverse('community:detail', kwargs={'slug': slug}))
 
+@login_required
+def community_theme(request,slug,theme_num):
+    community_object = get_object_or_404(community,slug = slug)
+    # may be used later
+    # themes=[
+    #     "background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);",
+    #     "background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);",
+    #     "background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);",
+    #     "background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);"
+
+    # ]
+    if request.user == community_object.admin:
+        # currently we are offering only four themes excluding white
+            if theme_num<5:
+                community_object.theme = theme_num
+                community_object.save()
+                print('changing theme')
+                return HttpResponseRedirect(reverse('community:detail', kwargs={'slug': slug}))
+            return HttpResponse('please click on an actual theme box')
+            
+    return HttpResponse('only admin can change theme')
+
+    
+
 class community_list_view(LoginRequiredMixin,ListView):
     model = community
     context_object_name = 'communities'

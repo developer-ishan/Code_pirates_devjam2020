@@ -19,7 +19,7 @@
 </div>
 <div class="flex flex-wrap justify-center xl:justify-start items-stretch pl-4">
     {% for community in communities %}
-    <div class="border rounded w-11/12 p-2 m-4 max-w-xl ">
+    <div class="border rounded w-11/12 p-2 m-4 max-w-xl shadow-lg" id="{{community.slug}}">
         <!-- image and name and admin -->
         <div class="flex p-2 flex-row justify-start items-center m-4 mx-auto">
 
@@ -54,6 +54,7 @@
 
     </div>
 
+
     {% endfor %}
 </div>
 
@@ -70,4 +71,11 @@
 {%endif%}
 {%endif%}
 <a href="{% url 'community:all' 'all' %}" class="block my-4 text-center text-blue-500 underline">see all communities</a>
+<script>
+    const cls = ["theme0", "theme1", "theme2", "theme3", "theme4"];
+    "{% for community in communities%}"
+    document.getElementById("{{community.slug}}").classList.remove(...cls);
+    document.getElementById("{{community.slug}}").classList.add(`theme{{community.theme}}`)
+    "{%endfor%}"
+</script>
 {% endblock %}
