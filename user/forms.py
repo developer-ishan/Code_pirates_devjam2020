@@ -7,11 +7,11 @@ class django_user_form(forms.ModelForm):
         model = User
         fields = ['username','first_name', 'last_name', 'password', 'email']
         widgets = {
-            'username': forms.TextInput(attrs={'class': 'field'}),
-            'first_name': forms.TextInput(attrs={'class': 'field'}),
-            'last_name': forms.TextInput(attrs={'class': 'field'}),
-            'email': forms.EmailInput(attrs={'class': 'field'}),
-            'password': forms.PasswordInput(attrs={'class': 'field'}),
+            'username': forms.TextInput(attrs={'class': 'border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none','onfocus':"niceAnims(0)", 'onblur':"returnBack(0)",'id':'fieldVal'}),
+            'first_name': forms.TextInput(attrs={'class': 'border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none','onfocus':"niceAnims(1)", 'onblur':"returnBack(1)",'id':'fieldVal'}),
+            'last_name': forms.TextInput(attrs={'class': 'border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none','onfocus':"niceAnims(2)", 'onblur':"returnBack(2)", 'id':'fieldVal' }),
+            'email': forms.EmailInput(attrs={'class': 'border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none','onfocus':"niceAnims(5)", 'onblur':"returnBack(5)",'id':'fieldVal'}),
+            'password': forms.PasswordInput(attrs={'class': 'border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none','onfocus':"niceAnims(6)", 'onblur':"returnBack(6)",'id':'fieldVal'}),
         }
 
     def clean_username(self):
@@ -34,13 +34,13 @@ class user_profile_form(forms.ModelForm):
         fields = ['regno', 'branch','profile_pic','group','roomno','hostel']
         # exclude = ['user']
         widgets = {
-            'regno': forms.NumberInput(attrs={'class': 'field'}),
-            'roomno': forms.NumberInput(attrs={'class': 'field'}),
+            'regno': forms.NumberInput(attrs={'class': 'border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none','onfocus':"niceAnims(3)", 'onblur':"returnBack(3)",'id':'fieldVal'}),
+            'roomno': forms.NumberInput(attrs={'class': 'border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none','onfocus':"niceAnims(4)", 'onblur':"returnBack(4)",'id':'fieldVal'}),
         }
        
     branch = forms.CharField(required=True, widget=forms.Select(
         attrs={
-            "class": "field"
+            "class": "w-full bg-white border-b-2 border-gray-500 py-1 focus:outline-none my-2"
         }, choices=(
             ('cs', 'Computer Science'),
             ('it', 'Information Technology'),
@@ -57,7 +57,7 @@ class user_profile_form(forms.ModelForm):
 
     hostel = forms.CharField(required=True, widget=forms.Select(
         attrs={
-            "class": "field"
+            "class": "w-full bg-white border-b-2 border-gray-500 py-1 focus:outline-none my-2"
         }, choices=(
             ('svbh', 'SVBH'),
             ('kngh', 'KNGH'),
@@ -68,7 +68,7 @@ class user_profile_form(forms.ModelForm):
     ))
     group = forms.CharField(required=True, widget=forms.Select(
         attrs={
-            "class": "field"
+            "class": "w-1/5 bg-white border-b-2 border-gray-500 py-1 focus:outline-none my-2"
         }, choices=(
             ('A1','A1'),
             ('A2','A2'),
