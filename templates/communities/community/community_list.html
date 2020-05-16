@@ -1,20 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<!-- title -->
+{% if type == 'followed'%}
+<h1 class="text-3xl sm:text-4xl capitalize text-center my-10">the communities you follows</h1>
+{%elif type == 'my'%}
+<h1 class="text-3xl sm:text-4xl capitalize text-center my-10">communities created by you</h1>
+{%elif type == 'all'%}
+<h1 class="text-3xl sm:text-4xl capitalize text-center my-10">all the communities</h1>
+{%endif%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<!-- communities list -->
+<div class="text-center mb-4">
 
-<body>
-    <h1>here is the list of all the communities</h1>
-    <a href="{% url 'community:create'%}">create new community</a>
+    <a href="{% url 'community:create'%}"
+        class="bg-white text-blue-500 px-4 py-2 my-4 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500 ">create
+        new community</a>
+</div>
+<div class="flex flex-wrap justify-center xl:justify-start items-stretch pl-4">
     {% for community in communities %}
-    <a href="{% url 'community:detail' community.slug %}"
-        style="display: block; margin: 2em auto; border: 2px solid red;">{{community.name}}-{{community.admin}}</a>
+    <div class="border rounded w-11/12 p-2 m-4 max-w-xl shadow-lg" id="{{community.slug}}">
+        <!-- image and name and admin -->
+        <div class="flex p-2 flex-row justify-start items-center m-4 mx-auto">
+
+            <img src="/{{community.community_img.url}}" class="w-24  h-24 my-2 mr-4 md:mx-0 rounded-full">
+
+            <div class=" flex flex-col items-center md:items-start justify-center text-center sm:ml-10">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl text-center"> <a
+                        href="{% url 'community:detail' community.slug %}">{{community.name}}</h3></a>
+                    <br>
+                    <h2 class="text-lg sm:text-xl md:text-xl capitalize">Admin:{{community.admin}}</h3>
+
+            </div>
+        </div>
+        <!-- description -->
+        <p class=" my-4 text-center text-justify">
+            {{community.desc}}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur repellat maxime unde nemo repudiandae et
+            nam. Magnam alias iusto quia!
+        </p>
+        <!-- follow/unfollow buttons -->
+        {% if community.name != 'notice'%}
+        {% if request.user in community.followed_by.all%}
+        <a href="{%url 'community:leave' community.slug %}"
+            class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">&times;
+            leave</a>
+        {% else %}
+        <a href="{% url 'community:join' community.slug%}"
+            class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">+
+            join</a>
+        {%endif%}
+        {%endif%}
+
+    </div>
+
 
     {% endfor %}
-</body>
+</div>
 
-</html>
+<!-- if communities does not exist text -->
+{%if not communities %}
+{% if type == 'followed'%}
+<p class="text-5xl  text-center w-full">follow communities to see them here</p>
+
+{%elif type == 'my'%}
+<p class="text-5xl  text-center w-full">create communities to see them here</p>
+
+{%elif type == 'all'%}
+<p class="text-5xl  text-center w-full">no communities to show</p>
+{%endif%}
+{%endif%}
+<a href="{% url 'community:all' 'all' %}" class="block my-4 text-center text-blue-500 underline">see all communities</a>
+<script>
+    const cls = ["theme0", "theme1", "theme2", "theme3", "theme4"];
+    "{% for community in communities%}"
+    document.getElementById("{{community.slug}}").classList.remove(...cls);
+    document.getElementById("{{community.slug}}").classList.add(`theme{{community.theme}}`)
+    "{%endfor%}"
+</script>
+{% endblock %}

@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+{% load crispy_forms_tags %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<p class="display-4 text-center text-capitalize my-2">update community details</p>
+<form action="" method="post" enctype="multipart/form-data" class="col-md-6 mx-auto">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-primary btn-block">save changes</button>
+    <a href="{% url 'community:detail' object.community.slug %}"
+        class="btn btn-block btn-outline-primary mb-4">cancel</a>
+    <a href="{% url 'community:delete-post' post.id %}" class="btn btn-block btn-outline-danger mb-4">delete this
+        post</a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>save changes</button>
-        <!-- todo:make a back link here back to its community page -->
-        <a href="{% url 'community:detail' object.community.slug %}">cancel</a>
-        <a href="{% url 'community:delete-post' post.id %}">delete this post</a>
-
-    </form>
-</body>
-
-</html>
+</form>
+{% endblock %}

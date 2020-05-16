@@ -1,119 +1,116 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
 
 
-    <div id="landing">
-        {% include 'base/nav.html' %}
-        
-        <div class="content-container">
-            <div class="content">
-                <h3 id="status">Status:
-                    <a href="{%url 'qr:generateqr' %}" style="color: #25d30a;">
-                        Generate QR
-                    </a>
-                    <span style="color: #25d30a;">
-                        
-                    </span>
-                    <br>
-                    <a href="#" style="font-size: 0.9rem; color: gray; font-weight: 600;">
-                        {% if isInsideHostel%}
-                            <p>Checkout->></p>
-                        {% else %}
-                            <p>Checkin&lt&lt-</p>
-                        {%endif%}
-                    </a>
-                </h3>
-            </div>
+<div id="landing">
 
-            <div class="content" id="healthcare">
-                <h3>
-                    HEALTHCARE FACILITIES
-                </h3>
-            </div>
+    <div class="content-container">
+        <div class="content">
+            <h3 id="status">Status:
+                <a href="{%url 'qr:generateqr' %}" style="color: #25d30a;">
+                    Generate QR
+                </a>
+                <span style="color: #25d30a;">
 
-            <div class="content" id="welcome">
-                <h1 style="font-size: 1.5rem;">
-                    Tuesday, 13 May
-                </h1><br>
-                <p style="font-size: 1rem;">
-                    Good Morning !
+                </span>
+                <br>
+                <a href="#" style="font-size: 0.9rem; color: gray; font-weight: 600;">
+                    {% if isInsideHostel%}
+                    <p>Checkout->></p>
+                    {% else %}
+                    <p>Checkin&lt&lt-</p>
+                    {%endif%}
+                </a>
+            </h3>
+        </div>
+
+        <div class="content" id="healthcare">
+            <h3>
+                HEALTHCARE FACILITIES
+            </h3>
+        </div>
+
+        <div class="content" id="welcome">
+            <h1 style="font-size: 1.5rem;">
+                Tuesday, 13 May
+            </h1><br>
+            <p style="font-size: 1rem;">
+                Good Morning !
                 <br><br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed magni aperiam con
-                </p>
-            </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed magni aperiam con
+            </p>
+        </div>
 
-            <div class="content" id="mess_schedule">
-                <h1 id="mess_period">
-                    BREAKFAST
-                </h1>
-                <P id="menu">
-                    aalo parantha + aachar + coffee
-                </P>
+        <div class="content" id="mess_schedule">
+            <h1 id="mess_period">
+                BREAKFAST
+            </h1>
+            <P id="menu">
+                aalo parantha + aachar + coffee
+            </P>
+            <br>
+            <p>
+                Would you be having breakfast today?
+            </p>
+            <br>
+            <div class="choice-container">
+                <a href="" class="is-eating-choice">YES</a>
                 <br>
-                <p>
-                    Would you be having breakfast today?
-                </p>
-                <br>
-                <div class="choice-container">
-                    <a href="" class="is-eating-choice">YES</a>
-                    <br>
-                    <a href="" class="is-eating-choice">NO</a>
-                </div>
-            </div>
-
-            <div class="content timetable-container">
-                <div class="subject">
-                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
-                    <div class="subject-properties" id="class-name">Maths</div>
-                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
-                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
-                </div>
-                <div class="subject">
-                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
-                    <div class="subject-properties" id="class-name">Maths</div>
-                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
-                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
-                </div>
-                <div class="subject">
-                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
-                    <div class="subject-properties" id="class-name">Maths</div>
-                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
-                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
-                </div>
-                <div class="subject">
-                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
-                    <div class="subject-properties" id="class-name">Maths</div>
-                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
-                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
-                </div>
-                <div class="subject">
-                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
-                    <div class="subject-properties" id="class-name">Maths</div>
-                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
-                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
-                </div>
-                <div class="subject">
-                    <div class="subject-properties" id="class-time">9AM - 10AM</div>
-                    <div class="subject-properties" id="class-name">Maths</div>
-                    <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
-                    <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
-                </div>
+                <a href="" class="is-eating-choice">NO</a>
             </div>
         </div>
-<h1>welcome {{request.user}}</h1>
-<!-- <a href="{%url 'user:logout' %}" style="display: block;">logout</a> -->
-<!-- <a href="{%url 'qr:generateqr' %}">generate qr</a> -->
-<!-- {% if isInsideHostel%}
-<p>checkout</p>
-{% else %}
-<p>checkin</p>
-<<<<<<< HEAD
-{%endif%}
-<a href="{% url 'community:all' %}">explore communities</a>
-=======
-{%endif%} -->
->>>>>>> frontend
 
-{% endblock %}
+        <div class="content timetable-container">
+            <div class="subject">
+                <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                <div class="subject-properties" id="class-name">Maths</div>
+                <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+            </div>
+            <div class="subject">
+                <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                <div class="subject-properties" id="class-name">Maths</div>
+                <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+            </div>
+            <div class="subject">
+                <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                <div class="subject-properties" id="class-name">Maths</div>
+                <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+            </div>
+            <div class="subject">
+                <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                <div class="subject-properties" id="class-name">Maths</div>
+                <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+            </div>
+            <div class="subject">
+                <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                <div class="subject-properties" id="class-name">Maths</div>
+                <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+            </div>
+            <div class="subject">
+                <div class="subject-properties" id="class-time">9AM - 10AM</div>
+                <div class="subject-properties" id="class-name">Maths</div>
+                <div class="subject-properties" id="class-attendance">Your Attendance :85%</div>
+                <div class="subject-properties" id="class-mark-attendance">Not Attending</div>
+            </div>
+        </div>
+    </div>
+    <h1>welcome {{request.user}}</h1>
+    <a href="{%url 'user:logout' %}" style="display: block;">logout</a>
+    <a href="{%url 'qr:generateqr' %}">generate qr</a>
+    {% if isInsideHostel%}
+    <p>checkout</p>
+    {% else %}
+    <p>checkin</p>
+    {%endif%}
+
+    <a href="{% url 'community:all' 'followed'%}">explore communities</a>
+
+    {% endblock %}

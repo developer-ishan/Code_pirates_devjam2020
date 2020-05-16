@@ -1,13 +1,14 @@
 {% load static %}
-<link rel="stylesheet" type="text/css"
-    href="{% static 'css/nav.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}" />
 <nav class="nav-container">
     <div id="logo">
-        <img src="https://img.icons8.com/ios/50/000000/nl-logo.png"/>
+        <img src="https://img.icons8.com/ios/50/000000/nl-logo.png" />
     </div>
     <div class="nav-tab-container">
         <div class="nav-tab">
-            COMMUNITY
+            <a href="{%url 'community:all' 'all' %}" style="display: block; text-transform: uppercase;">
+                community
+            </a>
         </div>
         <div class="nav-tab">
             CONTACT US
@@ -17,7 +18,8 @@
                 LOGOUT
             </a>
         </div>
-            <img src="https://img.icons8.com/metro/52/000000/user-male-circle.png" class="user">
+        <!-- todo change this img src from fixed to general -->
+        <img src="https://img.icons8.com/metro/52/000000/user-male-circle.png" class="user">
     </div>
 
     <div class="sidebar-container">

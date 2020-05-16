@@ -8,8 +8,10 @@ from django.contrib import messages
 from qr.models import gate_entry
 from .models import user_profile
 from api.models import entry_status
+from communities.models import community
 
 # Create your views here.
+@login_required
 def home_view(request):
     if request.user.is_authenticated:
         user = get_object_or_404(user_profile,user = request.user)
@@ -29,7 +31,7 @@ def user_signup_view(request):
         user_basic_data = django_user_form(data=request.POST)
         user_additional_data = user_profile_form(request.POST,request.FILES)
         
-        if user_basic_data.is_valid() and user_additional_data.is_valid():
+        if user_basic_data.is_valid() and user_additional_data.is_valid() and request.FILES['profile_pic']:
             user = user_basic_data.save()
             user.set_password(user.password)
             user.save()
@@ -37,11 +39,13 @@ def user_signup_view(request):
             additional_data = user_additional_data.save(commit=False)
             additional_data.user = user
             # code for profile pic in case added to model
-            # if 'profile_pic' in request.FILES:
-            print('request file',request.FILES['profile_pic'])  
+            # print('request file',request.FILES['profile_pic'])  
             additional_data.profile_pic = request.FILES['profile_pic']
             additional_data.save()
-             
+            #by default adding notice community to every user
+            notice_community = community.objects.get(slug = 'notice')
+            notice_community.followed_by.add(user)
+            additional_data.following.add(notice_community)
             return HttpResponseRedirect(reverse('user:login'))
         print(user_basic_data.errors,user_additional_data.errors)
     return render(request, 'user/signup.html', {

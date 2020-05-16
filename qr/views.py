@@ -3,6 +3,7 @@ import qrcode
 from user.models import user_profile
 from .models import gate_entry
 import datetime
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -14,7 +15,7 @@ def generate_qr(data):
         box_size = 5,
         border = 1,
     )
-    user_data = "Name:{}\nRegistration_no:{}\nRoom_No.:{}\nProfile_url:{}".format(data['user'],data['regno'],data['roomno'],data['profile_url'])
+    user_data = "{}\nName:{}\nRoom_No.:{}\nProfile_url:{}".format(data['regno'],data['user'],data['roomno'],data['profile_url'])
     qr.add_data(user_data)
     qr.make(fit=True)
     img = qr.make_image()
@@ -23,7 +24,7 @@ def generate_qr(data):
     # img.save('image.jpg')
     img.save("static/qr/{}.jpg".format(data['regno']))
   
-
+@login_required
 def generate_qr_view(request):
     
     user = user_profile.objects.filter(user = request.user)
