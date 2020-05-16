@@ -130,7 +130,7 @@ a{
 
 
 /* MESS SCHEDULE */
-#mess_schedule{
+/* #mess_schedule{
     text-align: center;
     border: 0.1rem solid gray;
     border-radius: 0.5rem;
@@ -154,7 +154,7 @@ a{
 .is-eating-choice:hover{
     background-color: rgb(141, 112, 196);
     color: white;
-}
+} */
 
 
 /* TIMETABLE */
