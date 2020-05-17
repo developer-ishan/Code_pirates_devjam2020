@@ -5,14 +5,18 @@ from django.contrib.auth.models import User
 from .forms import django_user_form,user_profile_form
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views.generic import ListView
 from qr.models import gate_entry
 from .models import user_profile,complaint
 from api.models import entry_status
-from communities.models import community
-
+from communities.models import community,post
 from mess.models import *
 from mess.views import *
 from datetime import datetime
+from healthcare.models import timing
+from healthcare.views import day_today
+import datetime 
+from datetime import date,datetime
 
 def current_meal():
     today = datetime.now().strftime("%A")
@@ -35,12 +39,23 @@ def home_view(request):
         isInsideHostel=True
         if entry:
             isInsideHostel = False
+
+        #user followed communities posts
+        community_followed_by_user = community.objects.filter(followed_by = request.user)
+        posts = post.objects.all()
+
+
         context = {
             'isInsideHostel'  : isInsideHostel,
             'meal'            : meal_to_vote(),
             'is_meal_voted'   : user.meal_is_voted,
             'will_eat'        : user.will_eat,
-            'current_meal'    : current_meal()
+            'current_meal'    : current_meal(),
+            'docs'             : timing.objects.filter(day = day_today()),
+            'community_followed_by_user':community_followed_by_user,
+            'posts':posts,
+            'suggested':community.objects.order_by('?')[:4]
+            #todo change above "1" to 4 or 5
         }
         return render(request,'user/index.html',context)
     else:
@@ -109,6 +124,7 @@ def user_logout_view(request):
 
 @login_required
 def user_complaint_view(request):
+
     if request.method == "POST":
         sender = get_object_or_404(user_profile,user = request.user)
         text = request.POST['complaint']
@@ -117,3 +133,6 @@ def user_complaint_view(request):
         return HttpResponseRedirect(reverse('user:home'))
     
     return render(request,'user/index.html',{})
+
+
+

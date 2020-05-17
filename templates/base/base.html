@@ -51,12 +51,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
 
-    {% include 'base/nav.html' %}
+<body style="margin-bottom: 3em;">
+    <nav id="nav-mobile">
+        {% include 'base/nav-mobile.html' %}
+    </nav>
+    <nav id="nav-pc">
+        {% include 'base/nav.html' %}
+    </nav>
+
     {% block body %}
 
     {% endblock%}
 </body>
+<script>
+    function nav() {
+        nav_pc = document.querySelector('#nav-pc')
+        nav_mob = document.querySelector('#nav-mobile')
+        if (screen.width > 574) {
+            nav_mob.style.display = "none"
+            nav_pc.style.display = "block"
+        } else {
+            nav_mob.style.display = "block"
+            nav_pc.style.display = "none"
+        }
+    }
+    nav()
+    window.onresize = nav
+</script>
 
 </html>

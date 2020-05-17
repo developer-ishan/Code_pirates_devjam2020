@@ -47,12 +47,12 @@
 
 
 
-                    <!-- App for meals -->
-                    {% include 'mess/mess.html' %}
+        <!-- App for meals -->
+        {% include 'mess/mess.html' %}
 
 
 
-                    
+        <!-- student timetable section -->
         <div class="content timetable-container">
             <div class="subject">
                 <div class="subject-properties" id="class-time">9AM - 10AM</div>
@@ -93,7 +93,108 @@
         </div>
     </div>
 
-    <a href="{% url 'community:all' 'followed'%}">explore communities</a>
+    <!-- this is doc section -->
+    <div>
+
+        {% for doc in docs %}
+        <div class="flex w-1/2 justify-around">
+
+            <p>{{doc.doc}}</p>
+            <p>{{doc.day}}</p>
+            <p>{{doc.doc.spec}}</p>
+            <p>{{doc.start_time}}</p>
+            <p>{{doc.end_time}}</p>
+        </div>
+        {%endfor%}
+    </div>
+    <!-- suugested communities -->
+    <div class="horizontal-scroll flex flex-row bg-blue-500 ">
+        {% for community in suggested %}
+        <div class="border bg-gray-500 py-4 px-8 m-4 rounded " id="{{community.slug}}">
+            <!-- image and name and admin -->
+            <div class="flex  w-full flex-row ">
+
+                <img src="/{{community.community_img.url}}" class="w-24  h-24 my-2 mr-4 md:mx-0 rounded-full">
+
+                <div class=" flex flex-col ">
+                    <h1 class="text-base sm:text-3xl md:text-xl text-center"> <a
+                            href="{% url 'community:detail' community.slug %}">{{community.name}}</h1></a>
+                    <br>
+                    <h2 class="text-lg sm:text-xl md:text-xl capitalize">Admin:{{community.admin}}</h3>
+
+                </div>
+            </div>
+            <!-- description -->
+            <p class=" my-4 text-center text-justify">
+                {{community.desc}}
+            </p>
+            <!-- follow/unfollow buttons -->
+            {% if community.name != 'notice'%}
+            {% if request.user in community.followed_by.all%}
+            <a href="{%url 'community:leave' community.slug %}"
+                class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">&times;
+                leave</a>
+            {% else %}
+            <a href="{% url 'community:join' community.slug%}"
+                class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">+
+                join</a>
+            {%endif%}
+            {%endif%}
+
+        </div>
+
+
+        {% endfor %}
+    </div>
+
+
+    <!-- all posts followed by user  -->
+
+    <div class=" px-10 py-10 ">
+        {% if posts.count %}
+        {% for post in posts %}
+        {% if post.community in community_followed_by_user %}
+
+
+        <!-- card start here -->
+        <div
+            class="border text-center font-sans mb-10 max-w-xl mx-auto rounded-lg flex flex-col bg-white hover:shadow-xl transition-all duration-500 ease-in-out">
+            <!-- card header -->
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center items-start">
+                <h2 class="mt-2 text-xl flex items-center">
+                    <img src="/{{post.community.community_img.url}}" class="w-12 h-12 my-2 mx-3  rounded-full">
+                    {{post.community.name}}
+                </h2>
+                {% if request.user == community.admin%}
+
+                <a href="{% url 'community:update-post' post.id %}"
+                    class="bg-white w-full sm:w-auto text-red-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-red-500 hover:text-white border border-red-500">edit
+                    this post</a>
+                {% endif %}
+            </div><!-- closing card header -->
+
+
+            <!-- card content -->
+            <div class="pr-4 py-2 ml-3">
+                <h1 class="text-left text-lg my-2 mx-2 text-gray-500">{{post.created_at}}</h1>
+                <h1 class="text-left font-black capitalize text-lg my-2 mx-2">{{post.post_title}}</h1>
+            </div>
+            {% if post.post_img %}
+            <img src="/{{post.post_img.url}}" class="w-full px-2">
+            {%endif%}
+            <p class="clear-both my-2 mx-2 text-left px-4 py-2">{{post.post_desc}}</p>
+
+
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        {% else %}
+        <p>no post available</p>
+        {%endif%}
+    </div>
+
+    <!-- this is complaint section -->
     <div id="contact" class=" w-full bg-teal-200 font-sans mx-auto shadow-lg flex flex-col justify-around sm:flex-row">
         <div class="svg__container px-20 text-center items-center self-center my-4">
             <img src="{% static 'images/buildings.svg' %}" alt="svg image" class="w-48 h-48 md:w-64">

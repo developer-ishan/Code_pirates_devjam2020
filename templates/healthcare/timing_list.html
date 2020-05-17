@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% for doc in docs %}
+<div class="flex w-1/2 justify-around">
+
+    <p>{{doc.doc}}</p>
+    <p>{{doc.day}}</p>
+    <p>{{doc.doc.spec}}</p>
+    <p>{{doc.start_time}}</p>
+    <p>{{doc.end_time}}</p>
+</div>
+{%endfor%}
+
+{%endblock%}

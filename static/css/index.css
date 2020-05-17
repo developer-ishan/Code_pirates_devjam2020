@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 
 html {
@@ -17,6 +18,27 @@ body {
 a {
     text-decoration: none;
 }
+
+.horizontal-scroll>div {
+    outline: 2px solid red;
+}
+
+.horizontal-scroll {
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+/* Hide scrollbar modern browsers */
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.horizontal-scroll {
+    -ms-overflow-style: none;
+}
+
 
 
 /* NAVIGATION BAR */
@@ -137,11 +159,7 @@ a {
 
 
 /* MESS SCHEDULE */
-<<<<<<< HEAD
-#mess_schedule {
-=======
 /* #mess_schedule{
->>>>>>> 153adcc9294c32f1f25126bdab0e616ba0658786
     text-align: center;
     border: 0.1rem solid gray;
     border-radius: 0.5rem;
