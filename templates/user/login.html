@@ -4,6 +4,7 @@
 {% block auth_body %}
 <!-- STYLESHEET FOR THE PAGE -->
 
+
 <style>
     a {
         text-decoration: none;
@@ -17,6 +18,20 @@
 
     label {
         transition: 0.2s all ease-in-out;
+    }
+
+    body,
+    html {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../static/images/login_bg.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    button {
+        transition: 0.25s all ease-in-out;
     }
 
     body,
@@ -53,13 +68,13 @@
                     <input type="text" required name="username"
                         class="border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none" id="fieldVal"
                         onfocus="niceAnims(0)" onblur="returnBack(0)"><br>
-                    <label id="anima">Username</label>
+                    <label id="anima" onclick="clickEffect(0)">Username</label>
                 </div>
                 <div class="form-elem my-3">
                     <input type="password" required name="password"
                         class="border-b-2 border-gray-500 px-2 py-1 text-lg w-full focus:outline-none" id="fieldVal"
                         onfocus="niceAnims(1)" onblur="returnBack(1)"><br>
-                    <label id="anima">Password</label>
+                    <label id="anima" onclick="clickEffect(1)">Password</label>
                 </div>
                 <button
                     class="px-4 py-2 text-blue-500 mx-auto border-2 border-blue-500 w-full rounded-full hover:bg-blue-500 hover:text-white font-semibold my-4">Login</button>
@@ -89,6 +104,11 @@
             document.querySelectorAll('#anima')[index].style.color = '#888'
             document.querySelectorAll('#anima')[index].style.fontSize = '1rem'
         }
+    }
+
+    function clickEffect(index) {
+        document.querySelectorAll('#fieldVal')[index].focus()
+        niceAnims(index)
     }
 </script>
 

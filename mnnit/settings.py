@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'qr',
     'api',
     'communities',
+    'mess',
     'rest_framework',
     'rest_framework.authtoken',
     'crispy_forms',
@@ -128,7 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-# TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True

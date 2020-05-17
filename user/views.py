@@ -10,7 +10,22 @@ from .models import user_profile,complaint
 from api.models import entry_status
 from communities.models import community
 
-# Create your views here.
+from mess.models import *
+from mess.views import *
+from datetime import datetime
+
+def current_meal():
+    today = datetime.now().strftime("%A")
+    meals_today = Schedule.objects.get(day=today)
+    to_vote = meal_to_vote()
+    
+    if to_vote == 'Breakfast':
+        return meals_today.breakfast
+    elif to_vote == 'Lunch':
+        return meals_today.lunch
+    else:
+        return meals_today.dinner
+
 @login_required
 def home_view(request):
     if request.user.is_authenticated:
@@ -20,7 +35,14 @@ def home_view(request):
         isInsideHostel=True
         if entry:
             isInsideHostel = False
-        return render(request,'user/index.html',{'isInsideHostel':isInsideHostel})
+        context = {
+            'isInsideHostel'  : isInsideHostel,
+            'meal'            : meal_to_vote(),
+            'is_meal_voted'   : user.meal_is_voted,
+            'will_eat'        : user.will_eat,
+            'current_meal'    : current_meal()
+        }
+        return render(request,'user/index.html',context)
     else:
        return  HttpResponseRedirect(reverse('user:login'))
 

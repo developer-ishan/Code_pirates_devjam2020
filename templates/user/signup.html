@@ -3,77 +3,118 @@
 
 {% block auth_body %}
 <!-- STYLESHEET FOR THE PAGE -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}" />
 
-<div class="container">
-    <div class="main-form">
-        <div class="grid-container">
-            <div class="grid-items signup-form">
-                <div style="width: 100%; text-align: center;">
-                    <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" class="user-img">
-                    <h3 style="font-size: 1.5rem; width: 100%;">New User Sign Up</h3>
+<style>
+    a{
+      text-decoration: none;
+    }
+    .form-elem label{
+        position: relative;
+        top: -1.8em;
+        color: #888;
+    }
+    label{
+        transition: 0.2s all ease-in-out;
+    }
+    button{
+        transition: 0.3s all ease-in-out;
+    }
+    body,html{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../static/images/signup_bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+</style>
+
+<div class="w-full h-screen flex items-center justify-center my-12">
+    <div class="bg-white w-11/12 sm:w-3/5 md:w-1/2 xl:w-3/5 lg:w-3/4 flex" style="border-bottom-right-radius: 1.5rem; border-top-left-radius: 1.5rem;">
+        <div class="w-full xl:w-1/2 lg:w-3/5 flex justify-center items-center flex-col mx-0">
+                <div class="flex justify-center items-center flex-col">
+                    <img src="https://img.icons8.com/ios-filled/100/000000/user-male-circle.png" class="my-2">
+                    <h1 class="font-semibold text-2xl my-2">New User SignUp</h1>
                 </div>
 
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data" class="my-8 w-4/5">
                     {%csrf_token%}
                     {{user_basic_form.errors}}
                     {{user_additional_form.errors}}
 
-                    <div class="form-elem">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.username}}
-                        <label>Username</label>
+                        <label id="anima" onclick="clickEffect(0)">Username</label>
                     </div>
 
-                    <div class="form-elem">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.first_name}}
-                        <label>Firstname</label>
+                        <label id="anima" onclick="clickEffect(1)">Firstname</label>
                     </div>
 
-                    <div class="form-elem">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.last_name}}
-                        <label>Lastname</label>
+                        <label id="anima" onclick="clickEffect(2)">Lastname</label>
                     </div>
 
-                    {{user_additional_form.profile_pic}}
-
-                    <div class="form-elem">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_additional_form.regno}}
-                        <label>Reg. No.</label>
+                        <label id="anima" onclick="clickEffect(3)">Reg. No.</label>
                     </div>
 
-                    <div class="form-elem">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_additional_form.roomno}}
-                        <label>Room No.</label>
+                        <label id="anima" onclick="clickEffect(4)">Room No.</label>
                     </div>
 
-                    <div class="form-elem">
+                    <div class="form-elem my-1 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.email}}
-                        <label>Email</label>
+                        <label id="anima" onclick="clickEffect(5)">Email</label>
                     </div>
 
                     {{user_additional_form.group}}
+                    {{user_additional_form.profile_pic}}
+                    <br>
 
                     {{user_additional_form.hostel}}
+                    <br>
 
                     {{user_additional_form.branch}}
 
-                    <div class="form-elem">
+                    <div class="form-elem my-2 lg:my-3 xl:my-3 md:my-2">
                         {{user_basic_form.password}}
-                        <label>Password</label>
-                        <img src="https://img.icons8.com/pastel-glyph/64/000000/lock.png" class="lock-icon">
+                        <label id="anima" onclick="clickEffect(6)">Password</label>
                     </div>
+                    <button class="px-4 py-2 text-blue-500 mx-auto border-2 border-blue-500 w-full rounded-full hover:bg-blue-500 hover:text-white font-semibold my-4">Register</button>
+                    <p class="text-center text-gray-500 font-semibold text-lg">Already A User? <span><a href="/login" class="text-blue-900">Login</a></span> Here!!</p>
 
-                    <!-- <div class="form-elem">
-                        <input type="password" required class="field">
-                        <label>Confirm Password</label>
-                        <img src="https://img.icons8.com/pastel-glyph/64/000000/lock.png" class="lock-icon">
-                    </div> -->
-                    <button type="submit" class="signup-btn">SignUp</button>
+
                 </form>
-            </div>
-            <div class="grid-items grid-img"><img src="{% static 'images/signup_side.jpg' %}"
-                    style="width: 100%; height: 100%; border-bottom-right-radius: 2em;"></div>
+        </div>
+        <div class="w-0 xl:w-1/2 lg:w-2/5">
+            <img src="{% static 'images/signup_side.jpg' %}" class="w-full h-full hidden xl:block lg:block" style="border-bottom-right-radius: 1.5rem;">
         </div>
     </div>
 </div>
+<script>
+    function niceAnims(index){
+        document.querySelectorAll('#anima')[index].style.top= '-4em' 
+        document.querySelectorAll('#anima')[index].style.color='#000' 
+        document.querySelectorAll('#anima')[index].style.fontSize='0.8rem'
+    }
+    function returnBack(index){
+        el = document.querySelectorAll('#fieldVal')[index]
+        if(el !==null && el.value !==""){
+        niceAnims(index)
+        }else{
+        document.querySelectorAll('#anima')[index].style.top= '-1.8em' 
+        document.querySelectorAll('#anima')[index].style.color='#888' 
+        document.querySelectorAll('#anima')[index].style.fontSize='1rem'
+        }
+    }
+    function clickEffect(index){
+        document.querySelectorAll('#fieldVal')[index].focus()
+        niceAnims(index)
+    }
+</script>
 {% endblock %}

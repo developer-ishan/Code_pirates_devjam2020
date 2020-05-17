@@ -12,6 +12,10 @@ class user_profile(models.Model):
     group = models.CharField(max_length=2)
     roomno = models.PositiveIntegerField(validators=[MinValueValidator(100,'please enter valid room no'),MaxValueValidator(999,'please enter valid room no')])
     hostel = models.CharField(max_length=255)
+    
+    meal_is_voted   = models.BooleanField(default=False) 
+    will_eat        = models.BooleanField(default=True)
+    
     profile_pic = models.ImageField(upload_to='static/images/profile_pic',default = 'static/images/profile_pic/avatar.png')
     following = models.ManyToManyField(community,blank = True)
 
