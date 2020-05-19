@@ -27,13 +27,14 @@
             redirect: 'follow'
         };
         // todo change this hardcoded regno to dynamic
-        fetch("http://localhost:8000/api/tick-status/20198043/", requestOptions)
+        fetch("http://localhost:8000/api/tick-status/{{regno}}/", requestOptions)
             .then(response => response.text())
             .then(result => {
                 var myObj = JSON.parse(result);
                 tick_status = myObj.show_tick;
+                console.log(tick_status)
                 if (tick_status) {
-                    qr.src = '/static/success.gif'
+                    qr.src = '/static/Success.gif'
                     clearInterval(intervalid)
                 }
             })
