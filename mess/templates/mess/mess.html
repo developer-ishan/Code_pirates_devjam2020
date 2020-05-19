@@ -1,41 +1,38 @@
 <div class="bg-blue-100 w-full">
     <div class="block xl:w-3/5 lg:w-3/4 md:w-2/3 sm:w-4/5 w-11/12 mx-auto py-20 flex lg:flex-row flex-col-reverse">
 
-        <div class="lg:w-1/4 w-full bg-blue-300" style="box-shadow: 1px 1px 10px #3BB2B8;">
+        <div class="w-1/4 w-full bg-blue-300" style="box-shadow: 1px 1px 10px #3BB2B8;">
 
 
             <div class="bg-blue-300 lg:py-12 sm:py-6 py-3 px-4" id="choice">
                 <h1 class="text-blue-900 font-semibold text-xl">BREAKFAST&nbsp; <span
-                        class="text-blue-800 bg-white rounded-full px-2  float-right" id="display-breakfast" onclick="show_bre()">+</span></h1>
+                        class="text-blue-800 bg-white rounded-full px-2  float-right" id="display-breakfast"
+                        onclick="show_bre()">+</span></h1>
             </div>
-            <div class="lg:w-3/4 w-full flex items-center bg-white mess-sec" id="breakfast">
-                <div class="md:px-4 py-4">
+            <div class="w-3/4 w-full flex items-center bg-white mess-sec" id="breakfast">
+                <div class="md:px-4 py-4 text-center">
                     <h1 class="xl:text-5xl lg:text-4xl md:text-3xl  text-2xl my-4">BREAKFAST</h1>
                     <h1 class="lg:text-xl text-lg md:my-6 my-3">Today's Breakfast Contains These <br> Items : </h1>
                     <h1 class="lg:text-xl text-lg md:my-6 my-3">{{ breakfast }}</h1>
-                    <div class="py-3 flex lg:flex-row flex-col">
-                         {% if not is_voted_bre  %}
-                        <button
-                            class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                    <div class="py-3 flex lg:flex-row flex-col justify-center">
+                        {% if not is_voted_bre  %}
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
                             <a href="/mess/yes/breakfast">YES</a>
                         </button>
-                        <button
-                            class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
                             <a href="/mess/no/breakfast">NO</a>
-                        </button> 
-                        
+                        </button>
+
                         {% elif will_eat_bre %}
                         <h1 class="lg:text-xl text-lg md:my-6 my-3">Enjoy your meal</h1>
-                        <button
-                            class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
                             <a href="/mess/no/breakfast">CHANGE</a>
                         </button>
                         {% else %}
                         <h1 class="lg:text-xl text-lg md:my-6 my-3">Thanks for saving food</h1>
-                        <button
-                            class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
                             <a href="/mess/yes/breakfast">CHANGE</a>
-                        </button> 
+                        </button>
                         {% endif %}
                     </div>
                 </div>
@@ -45,38 +42,35 @@
 
             <div class="w-full bg-blue-300 lg:py-12 sm:py-6 py-3 px-4" id="choice">
                 <h1 class="text-blue-900 font-semibold text-xl">LUNCH&nbsp; <span
-                        class="text-blue-800 bg-white rounded-full px-2 float-right" id="display-lunch"  onclick="show_lun()">+</span></h1>
+                        class="text-blue-800 bg-white rounded-full px-2 float-right" id="display-lunch"
+                        onclick="show_lun()">+</span></h1>
             </div>
-            <div class="lg:w-3/4 w-full flex items-center bg-white mess-sec" id="lunch">
-                <div class="md:px-4 py-4">
+            <div class="w-3/4 w-full flex items-center bg-white mess-sec" id="lunch">
+                <div class="md:px-4 py-4 text-center">
                     <h1 class="xl:text-5xl lg:text-4xl md:text-3xl  text-2xl my-4">LUNCH</h1>
                     <h1 class="lg:text-xl text-lg md:my-6 my-3">Today's Lunch Contains These <br> Items : </h1>
                     <h1 class="lg:text-xl text-lg md:my-6 my-3">{{ lunch }}</h1>
-                    <div class="py-3 flex lg:flex-row flex-col">
+                    <div class="py-3 flex lg:flex-row flex-col justify-center">
                         {% if not is_voted_lun  %}
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/yes/lunch">YES</a>
-                       </button>
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/no/lunch">NO</a>
-                       </button> 
-                       
-                       {% elif will_eat_lun %}
-                       <h1 class="lg:text-xl text-lg md:my-6 my-3">Enjoy your meal</h1>
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/no/lunch">CHANGE</a>
-                       </button>
-                       {% else %}
-                       <h1 class="lg:text-xl text-lg md:my-6 my-3">Thanks for saving food</h1>
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/yes/lunch">CHANGE</a>
-                       </button> 
-                       {% endif %}
-                   </div>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/yes/lunch">YES</a>
+                        </button>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/no/lunch">NO</a>
+                        </button>
+
+                        {% elif will_eat_lun %}
+                        <h1 class="lg:text-xl text-lg md:my-6 my-3">Enjoy your meal</h1>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/no/lunch">CHANGE</a>
+                        </button>
+                        {% else %}
+                        <h1 class="lg:text-xl text-lg md:my-6 my-3">Thanks for saving food</h1>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/yes/lunch">CHANGE</a>
+                        </button>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
@@ -84,77 +78,78 @@
 
             <div class="w-full bg-blue-300 lg:py-12 sm:py-6 py-3 px-4" id="choice">
                 <h1 class="text-blue-900 font-semibold text-xl">DINNER&nbsp; <span
-                        class="text-blue-800 bg-white rounded-full px-2 float-right" id="display-dinner" onclick="show_din()">+</span></h1>
+                        class="text-blue-800 bg-white rounded-full px-2 float-right" id="display-dinner"
+                        onclick="show_din()">+</span></h1>
             </div>
-            <div class="lg:w-3/4 w-full flex items-center bg-white mess-sec" id="dinner">
-                <div class="md:px-4 py-4">
+            <div class="w-3/4 w-full flex items-center bg-white mess-sec" id="dinner">
+                <div class="md:px-4 py-4 text-center">
                     <h1 class="xl:text-5xl lg:text-4xl md:text-3xl  text-2xl my-4">DINNER</h1>
                     <h1 class="lg:text-xl text-lg md:my-6 my-3">Today's Dinner Contains These <br> Items : </h1>
                     <h1 class="lg:text-xl text-lg md:my-6 my-3">{{ dinner }}</h1>
 
-                    <div class="py-3 flex lg:flex-row flex-col">
+                    <div class="py-3 flex lg:flex-row flex-col justify-center">
                         {% if not is_voted_din  %}
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/yes/dinner">YES</a>
-                       </button>
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/no/dinner">NO</a>
-                       </button> 
-                       
-                       {% elif will_eat_din %}
-                       <h1 class="lg:text-xl text-lg md:my-6 my-3">Enjoy your meal</h1>
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/no/dinner">CHANGE</a>
-                       </button>
-                       {% else %}
-                       <h1 class="lg:text-xl text-lg md:my-6 my-3">Thanks for saving food</h1>
-                       <button
-                           class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
-                           <a href="/mess/yes/dinner">CHANGE</a>
-                       </button> 
-                       {% endif %}
-                   </div>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/yes/dinner">YES</a>
+                        </button>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/no/dinner">NO</a>
+                        </button>
+
+                        {% elif will_eat_din %}
+                        <h1 class="lg:text-xl text-lg md:my-6 my-3">Enjoy your meal</h1>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/no/dinner">CHANGE</a>
+                        </button>
+                        {% else %}
+                        <h1 class="lg:text-xl text-lg md:my-6 my-3">Thanks for saving food</h1>
+                        <button class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">
+                            <a href="/mess/yes/dinner">CHANGE</a>
+                        </button>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
         </div>
-        
+
     </div>
 </div>
 
 <style>
-    #breakfast{
+    #breakfast {
         display: none;
     }
-    #lunch{
+
+    #lunch {
         display: none;
     }
-    #dinner{
+
+    #dinner {
         display: none;
     }
 </style>
 
 <script>
-    function show_bre(){
+    function show_bre() {
         var element = document.getElementById("breakfast");
-        if(element.style.display==="block")
+        if (element.style.display === "block")
             element.style.display = "none";
         else
             element.style.display = "block";
     }
-    function show_lun(element){
+
+    function show_lun(element) {
         var element = document.getElementById("lunch");
-        if(element.style.display==="block")
+        if (element.style.display === "block")
             element.style.display = "none";
         else
             element.style.display = "block";
     }
-    function show_din(element){
+
+    function show_din(element) {
         var element = document.getElementById("dinner");
-        if(element.style.display==="block")
+        if (element.style.display === "block")
             element.style.display = "none";
         else
             element.style.display = "block";
@@ -201,4 +196,3 @@
         </div>
     {% endif %}
 </div> -->
-

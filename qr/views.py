@@ -35,14 +35,16 @@ def generate_qr_view(request):
         'regno':user[0].regno,
         'roomno':user[0].roomno,
         'firstname':user[0].user.first_name,
-        'profile_url':user_profile_pic_url
+        'profile_url':user_profile_pic_url,
+        'branch':user[0].branch
     }
     #this will generate a qr code image
     generate_qr(user_details)
     
     
-    return render(request,'qr/code.html',{
+    return render(request,'user/ecard.html',{
         'qr_url':"/static/qr/{}.jpg".format(user_details['regno']),
         'profile_pic_url':user_profile_pic_url,
-        'regno':user_details['regno']
+        'regno':user_details['regno'],
+        'user_details':user_details
         })

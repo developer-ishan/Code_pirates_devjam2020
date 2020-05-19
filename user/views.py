@@ -76,6 +76,10 @@ def user_signup_view(request):
             official_communities = community.objects.filter(isofficial = True)
             additional_data.following.set(official_communities)
             additional_data.save()
+            #adding this new user to follower list of official communities
+            for object in official_communities:
+                object.followed_by.add(user)
+                object.save()
             return HttpResponseRedirect(reverse('user:login'))
         print(user_basic_data.errors,user_additional_data.errors)
     #if logged in user tried to access signup page it will log him out

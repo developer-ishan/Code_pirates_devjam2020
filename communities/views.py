@@ -17,10 +17,20 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 @login_required
 def declare_official_community(request,slug):
     if request.user.is_superuser:
+
         community_object = get_object_or_404(community,slug = slug)
         community_object.isofficial = True
+        #these are the "User" model objects
+        all_user_django = User.objects.all()
+        #these are the "user_profile" model objects
         all_users = user_profile.objects.all()
+        #adding all user in follower list of this community
+        community_object.followed_by.set(all_user_django)
         community_object.save()
+        #adding this community to following list of every user
+        for user in all_users:
+            user.following.add(community_object)
+            user.save()
         return HttpResponseRedirect(reverse('community:detail', kwargs={'slug': slug}))
     return HttpResponse(400)
 
@@ -74,8 +84,8 @@ class community_list_view(LoginRequiredMixin,ListView):
         #here every querset is sorted on basis of no. of followers
         if type == "followed":
             # queryset =  community.objects.filter(followed_by = self.request.user)
-            queryset =  community.objects.filter(followed_by = self.request.user).annotate(followers=Count('followed_by')).order_by('-followers')
-
+            queryset =  community.objects.filter(followed_by = self.request.user)
+            print(queryset)
         if type =="my":
             # queryset = community.objects.filter(admin = self.request.user)
             queryset =  community.objects.filter(admin = self.request.user).annotate(followers=Count('followed_by')).order_by('-followers')
