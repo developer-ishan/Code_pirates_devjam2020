@@ -13,8 +13,12 @@ class user_profile(models.Model):
     roomno = models.PositiveIntegerField(validators=[MinValueValidator(100,'please enter valid room no'),MaxValueValidator(999,'please enter valid room no')])
     hostel = models.CharField(max_length=255)
      
-    meal_is_voted   = models.BooleanField(default=False) 
-    will_eat        = models.BooleanField(default=True)
+    is_voted_bre   = models.BooleanField(default=False)
+    is_voted_lun   = models.BooleanField(default=False) 
+    is_voted_din   = models.BooleanField(default=False)  
+    will_eat_bre        = models.BooleanField(default=True)
+    will_eat_lun        = models.BooleanField(default=True)
+    will_eat_din        = models.BooleanField(default=True)
     
     profile_pic = models.ImageField(upload_to='static/images/profile_pic',default = 'static/images/profile_pic/avatar.png')
     following = models.ManyToManyField(community,blank = True)

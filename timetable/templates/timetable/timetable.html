@@ -1,0 +1,23 @@
+<div class="w-full  flex xl:flex-row lg:flex-row flex-col-reverse hover:shadow-2xl transition-shadow duration-1000 ease-in-out">
+            <div class="lg:w-1/2 xl:w-1/2 md:w-full flex justify-center items-center flex-col"
+                style="background: var(--main-color);">
+                <div id="timeline-pos">
+                    <h1 class="text-white xl:text-6xl md:text-4xl text-2xl">TODAY</h1>
+                    <div id="timeline" style="position: relative;">
+
+                        {% for subject in timetable %}
+
+                            <div class="container-event">
+                                <div class="content-event">
+                                    <h1>{{ subject.subject|title }} </h1>
+                                    <p style = "text-transform:uppercase;">{{ subject.start_time }} --- {{ subject.end_time }}</p>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>

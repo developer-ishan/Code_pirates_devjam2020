@@ -7,40 +7,11 @@
 
 <body onload="coolAnims()">
     <div class="w-full flex flex-col justify-center items-center">
-        <div
-            class="w-full  flex xl:flex-row lg:flex-row flex-col-reverse hover:shadow-2xl transition-shadow duration-1000 ease-in-out">
-            <div class="lg:w-1/2 xl:w-1/2 md:w-full flex justify-center items-center flex-col"
-                style="background: var(--main-color);">
-                <div id="timeline-pos">
-                    <h1 class="text-white xl:text-6xl md:text-4xl text-2xl">TODAY</h1>
-                    <div id="timeline" style="position: relative;">
-                        <div class="container-event">
-                            <div class="content-event">
-                                <h1>Maths</h1>
-                                <p>09:00 AM - 10:00 AM</p>
-                            </div>
-                        </div>
-                        <div class="container-event">
-                            <div class="content-event">
-                                <h1>Physics</h1>
-                                <p>10:00 AM - 11:00 AM</p>
-                            </div>
-                        </div>
-                        <div class="container-event">
-                            <div class="content-event">
-                                <h1>English & Comm.</h1>
-                                <p>11:00 AM - 12:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="container-event">
-                            <div class="content-event">
-                                <h1>Workshop</h1>
-                                <p>02:00 PM - 05:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
+        {% include "timetable/timetable.html" %}
+
+
             <div class="lg:w-1/2 xl:w-1/2 md:w-full flex  items-center" id="floating-elem"
                 style="background-image: url('/static/images/bg.jpg'); background-position: center; background-size: cover;">
                 <div class="bg-white lg:px-8 py-4 text-gray-700 rounded-lg flex justify-center items-center flex-col lg:items-start"
@@ -58,37 +29,13 @@
             </div>
         </div>
     </div>
-    <div class="bg-blue-100 w-full">
-        <div class="block xl:w-3/5 lg:w-3/4 md:w-2/3 sm:w-4/5 w-11/12 mx-auto py-20 flex lg:flex-row flex-col-reverse">
-            <div class="lg:w-3/4 w-full flex items-center bg-white" id="mess-sec">
-                <div class="md:px-4 py-4">
-                    <h1 class="xl:text-5xl lg:text-4xl md:text-3xl  text-2xl my-4">BREAKFAST</h1>
-                    <h1 class="lg:text-xl text-lg md:my-6 my-3">Today's Breakfast Contains These <br> Items : </h1>
-                    <h1 class="lg:text-xl text-lg md:my-6 my-3">Aloo Parantha + Tea + Achaar</h1>
-                    <div class="py-3 flex lg:flex-row flex-col">
-                        <button
-                            class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">Yes</button>
-                        <button
-                            class="px-16 py-2 bg-white border-2 mx-1 my-1 text-lg rounded-lg font-semibold">No</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:w-1/4 w-full bg-blue-300" style="box-shadow: 1px 1px 10px #3BB2B8;">
-                <div class="bg-blue-300 lg:py-12 sm:py-6 py-3 px-4" id="choice">
-                    <h1 class="text-blue-900 font-semibold text-xl">BREAKFAST&nbsp; <span
-                            class="text-blue-800 bg-white rounded-full px-2  float-right">+</span></h1>
-                </div>
-                <div class="w-full bg-blue-300 lg:py-12 sm:py-6 py-3 px-4" id="choice">
-                    <h1 class="text-blue-900 font-semibold text-xl">LUNCH&nbsp; <span
-                            class="text-blue-800 bg-white rounded-full px-2 float-right">+</span></h1>
-                </div>
-                <div class="w-full bg-blue-300 lg:py-12 sm:py-6 py-3 px-4" id="choice">
-                    <h1 class="text-blue-900 font-semibold text-xl">DINNER&nbsp; <span
-                            class="text-blue-800 bg-white rounded-full px-2 float-right">+</span></h1>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+
+
+    {% include "mess/mess.html" %}
+
+
+    
     <!-- suugested communities -->
     <div class="horizontal-scroll flex flex-row bg-blue-500 ">
         {% for community in suggested %}

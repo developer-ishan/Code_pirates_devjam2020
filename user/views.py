@@ -10,25 +10,16 @@ from qr.models import gate_entry
 from .models import user_profile,complaint
 from api.models import entry_status
 from communities.models import community,post
-from mess.models import *
-from mess.views import *
-from datetime import datetime
+# from mess.models import *
+# from mess.views import *
 from healthcare.models import timing
 from healthcare.views import day_today
-import datetime 
 from datetime import date,datetime
 
-def current_meal():
-    today = datetime.now().strftime("%A")
-    meals_today = Schedule.objects.get(day=today)
-    to_vote = meal_to_vote()
+from timetable.views import *
+
+from mess.views import *
     
-    if to_vote == 'Breakfast':
-        return meals_today.breakfast
-    elif to_vote == 'Lunch':
-        return meals_today.lunch
-    else:
-        return meals_today.dinner
 
 @login_required
 def home_view(request):
@@ -47,16 +38,18 @@ def home_view(request):
 
         context = {
             'isInsideHostel'  : isInsideHostel,
-            'meal'            : meal_to_vote(),
-            'is_meal_voted'   : user.meal_is_voted,
-            'will_eat'        : user.will_eat,
-            'current_meal'    : current_meal(),
-            'docs'             : timing.objects.filter(day = day_today()),
+            'docs'            : timing.objects.filter(day = day_today()),
             'community_followed_by_user':community_followed_by_user,
             'posts':posts,
-            'suggested':community.objects.order_by('?')[:4]
+            'suggested':community.objects.order_by('?')[:4],
+            'test':'nope'
             #todo change above "1" to 4 or 5
         }
+
+        # Adding the timetable to context
+        context.update(timetable_view(request))
+        context.update(meals_today(request))
+        context.update(get_mess_status(request))
         return render(request,'user/index.html',context)
     else:
        return  HttpResponseRedirect(reverse('user:login'))
