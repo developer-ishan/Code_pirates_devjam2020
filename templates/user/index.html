@@ -6,20 +6,20 @@
 </head>
 
 <body onload="coolAnims()">
-    <div class="w-full flex flex-col justify-center items-center">
+    <div class="w-full h-screen flex flex-col justify-center items-center">
 
 
         {% include "timetable/timetable.html" %}
 
 
-            <div class="lg:w-1/2 xl:w-1/2 md:w-full flex  items-center" id="floating-elem"
+            <div class="lg:w-1/2 h-screen xl:w-1/2 md:w-full flex  items-center" id="floating-elem"
                 style="background-image: url('/static/images/bg.jpg'); background-position: center; background-size: cover;">
                 <div class="bg-white lg:px-8 py-4 text-gray-700 rounded-lg flex justify-center items-center flex-col lg:items-start"
                     id="helloWorld">
                     <h1 class="xl:text-5xl lg:text-4xl text-2xl font-semibold" style="margin-bottom: 0.5em;">HELLO,
                         {{request.user.first_name}}</h1>
                     <h3 class="xl:text-2xl lg:text-xl text-lg xl:my-4 lg:my-3 font-semibold"
-                        style="line-height: 1.6rem;">here is the Classes you have Today</h3>
+                        style="line-height: 1.6rem;">Here are the classes you have today</h3>
                     <h3 class="xl:text-2xl lg:text-xl text-lg font-semibold lg:my-2 my-1"
                         style="margin-top: 1em; margin-bottom: 1em;" id="good-day">Have A Good Day!</h3>
                     <button
