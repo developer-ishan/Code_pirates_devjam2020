@@ -15,7 +15,7 @@ def generate_qr(data):
         box_size = 5,
         border = 1,
     )
-    user_data = "{}\nName:{}\nRoom_No.:{}\nProfile_url:{}".format(data['regno'],data['user'],data['roomno'],data['profile_url'])
+    user_data = "{};{};{};{};".format(data['regno'],data['user'],data['roomno'],data['profile_url'])
     qr.add_data(user_data)
     qr.make(fit=True)
     img = qr.make_image()

@@ -85,6 +85,8 @@ def user_signup_view(request):
             additional_data.following.add(notice_community)
             return HttpResponseRedirect(reverse('user:login'))
         print(user_basic_data.errors,user_additional_data.errors)
+    #if logged in user tried to access signup page it will log him out
+    logout(request)
     return render(request, 'user/signup.html', {
         "user_basic_form": user_basic_data,
         "user_additional_form": user_additional_data

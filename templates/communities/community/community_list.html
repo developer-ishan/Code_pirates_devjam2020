@@ -37,6 +37,10 @@
         <p class=" my-4 text-center text-justify">
             {{community.desc}}
         </p>
+        <!-- no of members of community -->
+        <p class=" my-4 float-left text-justify">
+            members:{{community.followed_by.count}}
+        </p>
         <!-- follow/unfollow buttons -->
         {% if community.name != 'notice'%}
         {% if request.user in community.followed_by.all%}
@@ -68,6 +72,8 @@
 <p class="text-5xl  text-center w-full">no communities to show</p>
 {%endif%}
 {%endif%}
+<a href="{% url 'community:all' 'my' %}" class="block my-4 text-center text-blue-500 underline">see communities created
+    by you</a>
 <a href="{% url 'community:all' 'all' %}" class="block my-4 text-center text-blue-500 underline">see all communities</a>
 <script>
     const cls = ["theme0", "theme1", "theme2", "theme3", "theme4"];

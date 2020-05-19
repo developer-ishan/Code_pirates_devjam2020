@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 import datetime
 from user.models import user_profile
+from django.db.models import Count
 #this will assure that only admin can update or delete
 from django.contrib.auth.mixins import UserPassesTestMixin
 # Create your views here.
@@ -57,15 +58,17 @@ class community_list_view(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         type = self.kwargs['type']
+        #here every querset is sorted on basis of no. of followers
         if type == "followed":
-            queryset =  community.objects.filter(followed_by = self.request.user)
-            
-        if type =="my":
-            queryset = community.objects.filter(admin = self.request.user)
-            
-        if type =="all":
-            queryset = community.objects.all
+            # queryset =  community.objects.filter(followed_by = self.request.user)
+            queryset =  community.objects.filter(followed_by = self.request.user).annotate(followers=Count('followed_by')).order_by('-followers')
 
+        if type =="my":
+            # queryset = community.objects.filter(admin = self.request.user)
+            queryset =  community.objects.filter(admin = self.request.user).annotate(followers=Count('followed_by')).order_by('-followers')
+        if type =="all":
+            # queryset = community.objects.all
+             queryset =  community.objects.annotate(followers=Count('followed_by')).order_by('-followers')
         return queryset
     
     def get_context_data(self, **kwargs):
