@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Webview_item"
+        android:icon="@drawable/ic_public_black"
+        android:title="Webview" />
+    <item
+        android:id="@+id/List_item"
+        android:icon="@drawable/ic_list_bulleted_black"
+        android:title="List" />
+    <item
+        android:id="@+id/Scanner_item"
+        android:icon="@drawable/ic_camera_alt_black"
+        android:title="Scanner" />
+</menu>
