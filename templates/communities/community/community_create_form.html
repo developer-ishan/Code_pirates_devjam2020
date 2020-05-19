@@ -8,6 +8,27 @@
 <form action="" method="post" enctype="multipart/form-data" class="col-md-6 mx-auto">
     {% csrf_token %}
     {{form|crispy}}
-    <button type="submit" class="btn btn-primary btn-block">create new communitys</button>
+    <p class="capitalize">set community theme</p>
+    <div class="text-center mb-4">
+
+        <br>
+        <div onclick="setTheme(0,this)" class="theme0 inline-block p-4 xs:p-6 md:p-8 theme-btn"></div>
+        <div onclick="setTheme(1,this)" class="theme1 inline-block p-4 xs:p-6 md:p-8 theme-btn"></div>
+        <div onclick="setTheme(2,this)" class="theme2 inline-block p-4 xs:p-6 md:p-8 theme-btn"></div>
+        <div onclick="setTheme(3,this)" class="theme3 inline-block p-4 xs:p-6 md:p-8 theme-btn"></div>
+        <div onclick="setTheme(4,this)" class="theme4 inline-block p-4 xs:p-6 md:p-8 theme-btn"></div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">create new communitys</div>
 </form>
+<script>
+    let element = document.querySelector('#id_theme')
+    let theme_btn = document.querySelectorAll('.theme-btn')
+
+    function setTheme(theme_num, selected) {
+        element.value = theme_num
+        theme_btn.forEach(btn => btn.style.outline = "0")
+        selected.style.outline = "4px solid yellow"
+
+    }
+</script>
 {% endblock %}

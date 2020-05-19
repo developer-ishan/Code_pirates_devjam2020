@@ -1,7 +1,7 @@
 .VSCode
 *.sqlite3
 # media/
-# *.pyc
+*.pyc
 # *.db
 # *.pid
 # django migrations 

@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,HttpResponse,HttpResponseRedirect,redirect
 from django.views.generic import CreateView, UpdateView, DeleteView,ListView,DetailView,TemplateView
 from .models import post,community
+from .forms import communityForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
@@ -109,7 +110,8 @@ class community_member_list(TemplateView):
 
 class community_create_view(LoginRequiredMixin, CreateView):
     model = community
-    fields = ('name', 'desc','community_img')
+    # fields = ('name', 'desc','community_img','theme')
+    form_class = communityForm
     success_url = reverse_lazy('community:all',kwargs={'type':"my"})
     template_name = "communities/community/community_create_form.html"
 
