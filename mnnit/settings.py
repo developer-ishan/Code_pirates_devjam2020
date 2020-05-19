@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'communities',
     'mess',
     'healthcare',
+    'timetable',
     'rest_framework',
     'rest_framework.authtoken',
     'crispy_forms',
