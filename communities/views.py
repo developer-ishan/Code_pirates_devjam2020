@@ -4,6 +4,7 @@ from .models import post,community
 from .forms import communityForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.urls import reverse, reverse_lazy
 import datetime
 from user.models import user_profile
@@ -11,6 +12,17 @@ from django.db.models import Count
 #this will assure that only admin can update or delete
 from django.contrib.auth.mixins import UserPassesTestMixin
 # Create your views here.
+
+
+@login_required
+def declare_official_community(request,slug):
+    if request.user.is_superuser:
+        community_object = get_object_or_404(community,slug = slug)
+        community_object.isofficial = True
+        all_users = user_profile.objects.all()
+        community_object.save()
+        return HttpResponseRedirect(reverse('community:detail', kwargs={'slug': slug}))
+    return HttpResponse(400)
 
 @login_required
 def join_community(request,slug):

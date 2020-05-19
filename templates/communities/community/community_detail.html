@@ -40,9 +40,14 @@
                     class="bg-white m-1 text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">create
                     new post</a>
                 {% endif %}
+                {% if request.user.is_superuser %}
+                <a href="{% url 'community:official' community.slug %}"
+                    class="bg-white m-1 text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">
+                    declare official</a>
+                {%endif%}
 
             </div>
-            {% if community.name != 'notice'%}
+            {% if not community.isofficial%}
             {% if request.user in community.followed_by.all%}
             <a href="{%url 'community:leave' community.slug %}"
                 class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">&times;

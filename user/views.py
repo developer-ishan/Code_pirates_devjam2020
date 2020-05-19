@@ -79,10 +79,10 @@ def user_signup_view(request):
             # print('request file',request.FILES['profile_pic'])  
             additional_data.profile_pic = request.FILES['profile_pic']
             additional_data.save()
-            #by default adding notice community to every user
-            notice_community = community.objects.get(slug = 'notice')
-            notice_community.followed_by.add(user)
-            additional_data.following.add(notice_community)
+            #by default adding official communities to every user
+            official_communities = community.objects.filter(isofficial = True)
+            additional_data.following.set(official_communities)
+            additional_data.save()
             return HttpResponseRedirect(reverse('user:login'))
         print(user_basic_data.errors,user_additional_data.errors)
     #if logged in user tried to access signup page it will log him out

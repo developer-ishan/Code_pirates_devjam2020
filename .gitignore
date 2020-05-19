@@ -1,6 +1,6 @@
 .VSCode
 *.sqlite3
-# media/
+media/
 *.pyc
 # *.db
 # *.pid
