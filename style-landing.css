@@ -1,0 +1,125 @@
+:root{
+    --main-color:#3BB2B8;
+    --secondary-color: #312afc;
+}
+#checkout-btn{
+    padding: 0.7em 1.4em;
+    display: inline;
+    transition: all 0.3s ease-in-out;
+    margin: 0.1em;
+}
+button:focus{
+    outline: 0;
+}
+#checkout-btn:hover{
+    padding: 0.8em 1.6em;
+    margin: 0;
+    box-shadow: 0.2em 0.2em 0.4em gray;
+}
+#checkout-btn:focus{
+    outline: 0;
+}
+#helloWorld{
+    padding-right: 10rem; 
+    position: relative; 
+    left: -10%;
+    top: -50px; 
+    opacity: 0;
+}
+.container-event{
+    border-left: medium solid white;
+    padding-left: 2.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.container-event::before{
+    content: " ";
+    border: medium solid #fff;
+    border-width: 0.4em 0.8em 0;
+    border-radius: 100%;   
+    position: relative;
+    left: -3.3em;
+    top: 2.3rem; 
+}
+.content-event{
+    color: #fff;
+    font-weight: 600;
+    padding-left: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in-out;
+}
+.content-event:hover{
+    font-size: 1.4rem;
+    padding: 0;
+}
+@media only screen and (max-width: 1024px) {
+    body {
+      font-size: 13px;
+    }
+    #helloWorld{
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 7em;
+        padding-left: 7em;
+        content: "Classes Today";
+    }
+    .content-event:hover{
+        font-size: 1.1rem;
+        padding: 0;
+    }
+    #floating-elem{
+        height: 50vh;
+        background-position: bottom;
+    }
+    #good-day{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+  }
+  @media only screen and (max-width: 680px) {
+    body {
+      font-size: 10px;
+    }
+    .content-event{
+        font-size: 1rem;
+    }
+    .container-event::before{
+        left: -3.6em;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    #mess-sec{
+        font-size: 5px;
+    }
+  }
+#timeline-pos{
+    margin-top: 8em;
+    margin-bottom: 4em;
+}
+#mess-sec{
+    color: var(--secondary-color);
+    box-shadow: 1px 1px 10px #3BB2B8;
+    padding-left: 6em;
+}
+#mess-sec button{
+    border: 0.1rem solid var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+} 
+#mess-sec button:hover{
+    background: var(--secondary-color);
+    color: #fff;
+}
+#choice{
+    border-bottom: 1px solid var(--secondary-color);
+    width: 92%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.2s ease-in-out;
+}
+#choice h1:hover{
+    color: #fff;
+}
