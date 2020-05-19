@@ -38,16 +38,23 @@ def set_tick_to_true(request,regno):
 
 # 3. this is class method to implement list 
     #this api will return all the gate entries
-class list_gate_entry_api(generics.ListCreateAPIView):
-    http_method_names = ['get']
-    queryset = gate_entry.objects.all()
-    serializer_class = gate_entry_Serializer
+# class list_gate_entry_api(generics.ListCreateAPIView):
+#     http_method_names = ['get']
+#     queryset = gate_entry.objects.all()
+#     serializer_class = gate_entry_Serializer
+@api_view(['GET'])
+def list_gate_entry_api(request):
+    gate_entries = gate_entry.objects.all()
+    serializer = gate_entry_Serializer(gate_entries,many = True)
+    return Response({"Entry data": serializer.data})
+
 
  
 # 4. this api open/close the gate entry with a input of regno
 @api_view(['POST'])
 def create_gate_entry_api(request,regno):
     user_details = get_object_or_404(user_profile,regno = regno)
+    print(user_details)
     now=datetime.datetime.now()
     data={
  

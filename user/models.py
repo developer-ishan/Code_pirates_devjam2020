@@ -12,7 +12,7 @@ class user_profile(models.Model):
     group = models.CharField(max_length=2)
     roomno = models.PositiveIntegerField(validators=[MinValueValidator(100,'please enter valid room no'),MaxValueValidator(999,'please enter valid room no')])
     hostel = models.CharField(max_length=255)
-    
+     
     meal_is_voted   = models.BooleanField(default=False) 
     will_eat        = models.BooleanField(default=True)
     

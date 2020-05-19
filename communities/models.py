@@ -16,6 +16,7 @@ class community(models.Model):
     slug = models.SlugField(default='')
     community_img = models.ImageField(upload_to='static/images/communities_img',default = 'static/images/communities_img/community_default.png')
     theme = models.IntegerField(default=0)
+    isofficial = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -23,6 +24,26 @@ class community(models.Model):
         value = self.name
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)
+
+
+from django.db.models.signals import post_save,pre_save
+from django.dispatch import receiver
+
+
+    
+
+# method for updating
+# @receiver(post_save, sender=community)
+# def update_community_members(sender, instance, **kwargs):
+#     print(instance)
+#     if instance.isofficial:
+#             all_users = User.objects.all()
+#             for user in all_users:
+#                 print(user)
+#             print(instance.followed_by.add(user))
+    
+    
+
 
 class post(models.Model):
     community = models.ForeignKey(community,on_delete=models.CASCADE)

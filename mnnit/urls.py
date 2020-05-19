@@ -23,4 +23,5 @@ urlpatterns = [
     path('qr/',include('qr.urls')),
     path('community/',include('communities.urls')),
     path('mess/',include('mess.urls')),
+    path('healthcare/',include('healthcare.urls')),
 ]
