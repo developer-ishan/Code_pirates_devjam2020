@@ -41,7 +41,7 @@ def home_view(request):
             'docs'            : timing.objects.filter(day = day_today()),
             'community_followed_by_user':community_followed_by_user,
             'posts':posts,
-            'suggested':community.objects.order_by('?')[:4],
+            'suggested':community.objects.order_by('?')[:6],
             'test':'nope'
             #todo change above "1" to 4 or 5
         }
