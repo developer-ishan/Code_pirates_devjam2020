@@ -1,6 +1,41 @@
-# devjam
-Project for devjam 2020
+# MNNIT UTILITIES 
+```
+MNNIT utilities is used to mark attendence at hostel gates and giving some features like personlised  class and mess time table etc.
+```
 
+
+## How to use
+
+This project is available in both android application and web-site.
+#### ```bash  For gaurds android app is availabe so that they can scan qr code at entry of student```
+#### ``` bash For students they have acccess to only the web-site only ```
+#### ``` Every Stuent will have to create their own profile and also attching their profile image```
+
+## Features
+
+```To reduce the long wait at the queues, our app will generate a QR code(unique for each student) which the gate guards will scan through their mobile application, same for checking into the hostel. ```
+``` There is a lot of mess food wastage, our app will display the current menu, and the student can poll, if they want to eat it or not.```
+```This can also be used to register the complaints here, which would be delivered to the caretaker from time to time.```
+```It gives features host online communities(such as web, ML and even UPSC aspirants) , where the seniors with a mentor profile can post information stuff to help their juniors with stuff.```
+```We have made accessible the timetable of the MNNIT dispensary and the nearby hospitals, so that the accessibility of these facilities.```
+
+
+## Tech Stack
+* HTML
+* CSS
+* JAVA SCRIPT
+* PYTHON
+* ANDROID STUDIO 
+
+## Libraries
+* Asgiref
+* Colorama
+* Django
+* Pillow
+* Pytz
+* Qrcode
+* Six
+* Sqlparse
 
 
 ## setting up the project on your pc
@@ -45,3 +80,16 @@ and in browser go to following [URL](http://localhost:8000/) http://localhost:80
 
 
 ## If the url breaks for any view then populate the database and then run the server.
+
+## Team Details
+#Team Name: Code_Pirates
+```
+Member 1: Mohit Pandey 20194204
+Member 2: Lovedeep Singh Kamal 20198042
+Member 3: Ishan Gupta 20194175
+Member 4: Arun Kumar 20194109
+
+```
+
+
+
