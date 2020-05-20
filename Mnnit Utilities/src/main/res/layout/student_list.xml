@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="5sp"
+    android:elevation="20sp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@drawable/border_red"
+        android:elevation="20sp"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -29,17 +32,6 @@
                 android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/tv_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:text="entry id"
-                    android:textAllCaps="true"
-                    android:textColor="#ED6401" />
-
-                <TextView
                     android:id="@+id/tv_student_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -47,9 +39,11 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:text="studentname"
+                    android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColor="#ED6401"
+                    android:textColor="#0400E4"
                     android:textSize="16sp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -57,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:orientation="horizontal"
-                android:weightSum="4">
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/tv_reg"
@@ -68,8 +62,9 @@
                     android:background="@android:color/transparent"
                     android:gravity="left|center_vertical"
                     android:text="reg no."
+                    android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColor="#ED6401"
+                    android:textColor="#CF5700"
                     android:textSize="15sp" />
 
                 <TextView
@@ -81,9 +76,18 @@
                     android:background="@android:color/transparent"
                     android:gravity="left|center_vertical"
                     android:text="room no."
+                    android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColor="#ED6401"
+                    android:textColor="#CF5700"
                     android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <TextView
                     android:id="@+id/tv_out"
@@ -94,9 +98,10 @@
                     android:background="@android:color/transparent"
                     android:gravity="left|center_vertical"
                     android:text="out time"
+                    android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColor="#ED6401"
-                    android:textSize="15sp" />
+                    android:textColor="#FF0000"
+                    android:textSize="15.5sp" />
 
                 <TextView
                     android:id="@+id/tv_in"
@@ -107,9 +112,10 @@
                     android:background="@android:color/transparent"
                     android:gravity="left|center_vertical"
                     android:text="in time"
+                    android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColor="#ED6401"
-                    android:textSize="15sp" />
+                    android:textColor="#ED0101"
+                    android:textSize="15.5sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
