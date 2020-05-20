@@ -119,27 +119,16 @@ public class PopupWindow_ok extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child("Entry_data").child("ENTRY_SVBH").child(Spliting_data[0]).exists()) {
-                            in_time[0] = dataSnapshot.child("in_time").getValue(String.class);
-                            Log.d("____value__1_____", "______________" + "___________________");
+
 
 
                             Map<String, Object> user_info = new HashMap<>();
-                            Log.d("____value__2_____", "______________" + Arrays.toString(in_time) + "___________________");
-                            if (Arrays.toString(in_time).equals("[IN :]")) {
+
                                 user_info.put("name", Spliting_data[1]);
                                 user_info.put("reg_no", "Reg no. :" + Spliting_data[0]);
                                 user_info.put("room_no", "Room no. :" + Spliting_data[2]);
                                 user_info.put("in_time", "IN :" + time);
-                                user_info.put("out_time", "OUT :");
                                 Log.d("intime__________", "_________________________working __________________");
-                            } else {
-                                Log.d("outime____", "_____________________________working_________________________");
-                                user_info.put("name", Spliting_data[1]);
-                                user_info.put("reg_no", "Reg no. :" + Spliting_data[0]);
-                                user_info.put("room_no", "Room no. :" + Spliting_data[2]);
-                                user_info.put("in_time", "IN :");
-                                user_info.put("out_time", "OUT :" + time);
-                            }
 
                             DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("Entry_data").child("ENTRY_SVBH").child(Spliting_data[0]);
                             database.updateChildren(user_info).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -162,7 +151,7 @@ public class PopupWindow_ok extends AppCompatActivity {
                             user_info.put("room_no", "Room no. :" + Spliting_data[2]);
                             user_info.put("in_time", "IN :");
                             user_info.put("out_time", "OUT :" + time);
-
+						    Log.d("out_time__________", "_________________________working __________________");
 
                             DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("Entry_data").child("ENTRY_SVBH").child(Spliting_data[0]);
                             database.updateChildren(user_info).addOnCompleteListener(new OnCompleteListener<Void>() {
