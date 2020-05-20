@@ -67,11 +67,8 @@
                     <circle stroke="currentColor" stroke-width="2" cx="21" cy="21" r="20"></circle>
                 </g>
             </svg>
-            <span class="tab tab-explore block text-xs">{% if isInsideHostel%}
-                <p>checkout</p>
-                {% else %}
-                <p>checkin</p>
-                {%endif%}
+            <span class="tab tab-explore block text-xs">profile
+
 
             </span>
         </a>
@@ -103,7 +100,7 @@
             </svg>
             <span class="tab tab-whishlist block text-xs">contact us</span>
         </a>
-        <a href=#
+        <a href="{%url 'healthcare:all' %}"
             class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
             <svg width="25" height="25" viewBox="0 0 42 42" class="inline-block mb-1">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -129,7 +126,7 @@
                     </g>
                 </g>
             </svg>
-            <span class="tab tab-account block text-xs">Account</span>
+            <span class="tab tab-account block text-xs">healthcare</span>
         </a>
     </div>
 </section>
