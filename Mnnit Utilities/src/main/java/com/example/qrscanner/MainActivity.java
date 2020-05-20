@@ -62,13 +62,12 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-
         if (checkPermission()) {
                                                                     //to give permission to use camera
         } else {
             requestPermission();
         }
-        String URL_="https://10.0.2.2/index.html";
+        String URL_="http://localhost:8000";
         web_main=findViewById(R.id.web_main);                       // adding webview
         WebSettings webSettings=web_main.getSettings();
         web_main.loadUrl(URL_);

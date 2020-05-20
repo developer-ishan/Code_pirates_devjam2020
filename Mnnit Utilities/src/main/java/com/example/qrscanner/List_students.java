@@ -20,6 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,6 +50,9 @@ public class List_students extends AppCompatActivity {
     InputStream inputStream;
     Context context=List_students.this;
     RecyclerView recyclerView;
+    ArrayList<Entrydata_getset> list;
+    DatabaseReference reference;
+    Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +86,35 @@ public class List_students extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        GetData getData=new GetData();
-        getData.execute();
+        //GetData getData=new GetData();
+        //  getData.execute();
+
+        reference= FirebaseDatabase.getInstance().getReference().child("Entry_data")
+                .child("ENTRY_SVBH");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list=new ArrayList<Entrydata_getset>();
+                for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
+                {
+                    Entrydata_getset entrydata=dataSnapshot1.getValue(Entrydata_getset.class);
+                    list.add(entrydata);
+                }
+                adapter=new Adapter(List_students.this,list);
+                recyclerView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
 
     }
 
@@ -91,10 +127,7 @@ public class List_students extends AppCompatActivity {
     }
 
 
-
-
-
-    public class GetData extends AsyncTask<String,Void,Void> {
+  /*  public class GetData extends AsyncTask<String,Void,Void> {
 
         @Override
         protected Void doInBackground(String... strings) {
@@ -158,7 +191,7 @@ public class List_students extends AppCompatActivity {
             {
                 try {
                     JSONObject jsonObject=new JSONObject(result);
-                    JSONArray jsonArray= jsonObject.getJSONArray("result");
+                    JSONArray jsonArray= jsonObject.getJSONArray("Entry data");
                     java.util.List<Entrydata_getset> entrydataGetsets=new ArrayList<>();
                     for(int i=0;i<jsonArray.length();i++)
                     {
@@ -194,7 +227,7 @@ public class List_students extends AppCompatActivity {
             super.onProgressUpdate(values);
         }
     }
-
+*/
 
 
 
