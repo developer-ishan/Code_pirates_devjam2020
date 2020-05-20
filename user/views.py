@@ -46,9 +46,11 @@ def home_view(request):
             #todo change above "1" to 4 or 5
         }
 
-        # Adding the timetable to context
+        # Adding the timetable to context dict
         context.update(timetable_view(request))
+        #adding meals to dict
         context.update(meals_today(request))
+        #adding mess status to dict
         context.update(get_mess_status(request))
         return render(request,'user/index.html',context)
     else:
