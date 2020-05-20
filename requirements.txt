@@ -1,6 +1,9 @@
 asgiref==3.2.7
 colorama==0.4.3
 Django==3.0.6
+django-cors-headers==3.3.0
+django-crispy-forms==1.9.0
+djangorestframework==3.11.0
 Pillow==7.1.2
 pytz==2020.1
 qrcode==6.1

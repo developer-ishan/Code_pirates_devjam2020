@@ -15,8 +15,32 @@ def day_today():
     return day_name.strftime("%A").upper()
 
 class doc_list_view(ListView):
-    model = timing
+    model = timing 
     context_object_name = 'docs'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        monday = timing.objects.filter(day = 'MONDAY')
+        tuesday = timing.objects.filter(day = 'TUESDAY')
+        wednesday = timing.objects.filter(day = 'WEDNESDAY')
+        thrusday = timing.objects.filter(day = 'THRUSDAY')
+        friday = timing.objects.filter(day = 'FRIDAY')
+        saturday = timing.objects.filter(day = 'SATURDAY')
+        sunday = timing.objects.filter(day = 'SUNDAY')
+
+        context = {
+            'monday':monday,
+            'tuesday':tuesday,
+            'wednesday':wednesday,
+            'thrusday':thrusday,
+            'friday':friday,
+            'saturday':saturday,
+            'sunday':sunday
+        }
+        # context['days_context']
+    
+        return context
 
 
 

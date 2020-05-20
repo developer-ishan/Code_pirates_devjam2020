@@ -3,7 +3,7 @@
 {% block body %}
 <link rel="stylesheet" href="{% static 'css/style-landing.css' %}">
 
-</head>
+
 
 <body onload="coolAnims()">
     <div class="w-full h-screen flex flex-col justify-center items-center">
@@ -12,11 +12,12 @@
         {% include "timetable/timetable.html" %}
 
 
-        <div class="lg:w-1/2 xl:w-1/2 md:w-full flex  items-center" id="floating-elem"
+        <div class="lg:w-1/2 xl:w-1/2 md:w-full flex  items-center p-8 md:p-0" id="floating-elem"
             style="background-image: url('/static/images/bg.jpg'); background-position: center; background-size: cover;">
-            <div class="bg-white lg:px-8 py-4 text-gray-700 rounded-lg flex justify-center items-center flex-col lg:items-start"
+            <div class=" text-center bg-white lg:px-8 py-4 text-gray-700 rounded-lg flex justify-center items-center flex-col lg:items-start"
                 id="helloWorld">
-                <h1 class="xl:text-5xl lg:text-4xl text-2xl font-semibold" style="margin-bottom: 0.5em;">HELLO,
+                <h1 class="xl:text-5xl lg:text-4xl text-2xl font-semibold uppercase" style="margin-bottom: 0.5em;">
+                    HELLO,
                     {{request.user.first_name}}</h1>
                 <h3 class="xl:text-2xl lg:text-xl text-lg xl:my-4 lg:my-3 font-semibold" style="line-height: 1.6rem;">
                     here is the list of Classes you have Today</h3>
@@ -37,7 +38,7 @@
 
 
     <!-- suugested communities -->
-    <div class="horizontal-scroll flex flex-row bg-blue-500 ">
+    <div class="horizontal-scroll flex flex-row bg-blue-500 " style="overflow-x: auto;">
         {% for community in suggested %}
         <div class="border bg-gray-500 py-4 px-8 m-4 rounded " id="{{community.slug}}">
             <!-- image and name and admin -->
