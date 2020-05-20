@@ -7,8 +7,8 @@ MNNIT utilities is used to mark attendence at hostel gates and giving some featu
 ## How to use
 
 This project is available in both android application and web-site.
-#### ```bash  For gaurds android app is availabe so that they can scan qr code at entry of student```
-#### ``` bash For students they have acccess to only the web-site only ```
+#### ``` For gaurds android app is availabe so that they can scan qr code at entry of student```
+#### ``` For students they have acccess to only the web-site only ```
 #### ``` Every Stuent will have to create their own profile and also attching their profile image```
 
 ## Features
