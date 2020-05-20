@@ -6,7 +6,7 @@
 
 
 <body onload="coolAnims()">
-    <div class="w-full h-screen flex flex-col justify-center items-center">
+    <div class="w-full flex flex-col justify-center items-center">
 
 
         {% include "timetable/timetable.html" %}
@@ -38,13 +38,14 @@
 
 
     <!-- suugested communities -->
-    <div class="horizontal-scroll flex flex-row bg-blue-500 " style="overflow-x: auto;">
+    <h1 class="text-2xl text-gray-600 pl-4 py-3 bg-gray-200">Suggested Communities : </h1>
+    <div class="horizontal-scroll flex py-3 flex-row bg-gray-200 hover:shadow-xl transition-all duration-500 ease-in-out" style="overflow-x: auto; font-size: 16px;">
         {% for community in suggested %}
-        <div class="border bg-gray-500 py-4 px-8 m-4 rounded " id="{{community.slug}}">
+        <div class=" border border-blue-500 hover:bg-gray-500 transition-all duration-500 ease-in-out bg-gray-400 py-2 px-8 m-2 rounded w-full" id="{{community.slug}}" style="overflow: auto; min-width: 420px; height: 18rem;">
             <!-- image and name and admin -->
             <div class="flex  w-full flex-row ">
 
-                <img src="/{{community.community_img.url}}" class="w-24  h-24 my-2 mr-4 md:mx-0 rounded-full">
+                <img src="/{{community.community_img.url}}" class="w-24  h-24 my-3 mr-4 md:mx-0 rounded-full">
 
                 <div class=" flex flex-col ">
                     <h1 class="text-base sm:text-3xl md:text-xl text-center"> <a
@@ -57,17 +58,17 @@
             <!-- description -->
             <p class=" my-4 text-center text-justify">
                 {{community.desc}}
-            </p>
+            </p><br>
             <!-- follow/unfollow buttons -->
             {% if community.name != 'notice'%}
             {% if request.user in community.followed_by.all%}
             <a href="{%url 'community:leave' community.slug %}"
                 class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">&times;
-                leave</a>
+                Leave</a>
             {% else %}
             <a href="{% url 'community:join' community.slug%}"
                 class="float-right bg-white text-blue-500 px-4 py-2 text-lg rounded-md font-bold hover:bg-blue-500 hover:text-white border border-blue-500">+
-                join</a>
+                Join</a>
             {%endif%}
             {%endif%}
 
